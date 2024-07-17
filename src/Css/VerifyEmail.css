@@ -1,0 +1,285 @@
+/* VerifyEmail.css */
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.main-container .card-container {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  padding: 30px;
+  justify-content: center;
+}
+
+.card-container .form-container {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-container .form-container h2 {
+  margin-bottom: 0;
+  font-size: 24px;
+  color: #333;
+  text-align: left;
+  margin-top: 0;
+  position: relative;
+}
+
+.card-container .form-container h2::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #007bff;
+  position: absolute;
+  left: 0;
+}
+
+.card-container .form-container p {
+  margin-bottom: 2rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+.verification-code {
+  display: block;
+  margin-bottom: 1rem;
+  color: #656565CC;
+  font-weight: 600;
+}
+
+.card-container .form-container .input-group {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  margin-bottom: 15px;
+}
+
+.card-container .form-container .input-group input {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  border: 1px solid #2596BE;
+  margin: 0 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.continue-btn {
+  width: 90%;
+  padding: 10px;
+  background-color: #2596BE;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 4rem;
+}
+
+.continue-btn:hover {
+  background-color: #0056b3;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+}
+
+.image-container img {
+  width: 80%;
+  height: auto;
+}
+
+.card-container .form-container .error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+
+
+
+@media (max-width: 767px) {
+
+  .main-container .card-container {
+    flex-direction: column-reverse;
+  }
+
+  .image-container {
+    display: flex;
+  }
+
+  .continue-btn {
+    width: 100%;
+  }
+
+  .card-container .form-container .input-group input{
+    width: 80%;
+  }
+
+  .card-container .form-container{
+    padding: 1rem;
+    width: 90%;
+  }
+
+  .main-container .card-container{
+    padding: 1rem;
+    width: 100%;
+    box-shadow: none;
+  }
+}
+
+/* 
+{
+  "users": [
+    {
+      "id": "2dbb",
+      "username": "ss",
+      "email": "ss@gmail.com",
+      "password": "12451245"
+    },
+    {
+      "id": "3d03",
+      "username": "vv01",
+      "email": "vv@gmail.com",
+      "password": "78945612"
+    }
+  ]
+} */
+
+/* 
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "ss",
+      "role": "admin", 
+      "attendance": [],
+      "leaves": []
+    },
+    {
+      "id": "2",
+      "name": "jk",
+      "role": "employee",
+      "attendance": [],
+      "leaves": []
+    },
+    {
+      "id": "3",
+      "name": "vv",
+      "role": "employee",
+      "attendance": [],
+      "leaves": []
+    }
+  ],
+  "attendance": [
+    {
+      "id": "1",
+      "employeeId": 1,
+      "date": "2024-07-01",
+      "status": "present"
+    },
+    {
+      "id": "2",
+      "employeeId": 2,
+      "date": "2024-07-01",
+      "status": "absent"
+    },
+    {
+      "id": "24d1",
+      "employeeId": "2",
+      "date": "2024-07-04",
+      "status": "present"
+    },
+    {
+      "id": "a9de",
+      "employeeId": "2",
+      "date": "2024-07-04",
+      "status": "present"
+    },
+    {
+      "id": "4231",
+      "employeeId": "3",
+      "date": "2024-07-04",
+      "status": "present"
+    },
+    {
+      "id": "0b19",
+      "employeeId": "2",
+      "date": "2024-07-04",
+      "status": "present"
+    }
+  ],
+  "leaves": [
+    {
+      "id": "1",
+      "employeeId": 2,
+      "startDate": "2024-07-05",
+      "endDate": "2024-07-10",
+      "reason": "Vacation",
+      "status": "approved"
+    },
+    {
+      "id": "52fc",
+      "employeeId": 2,
+      "startDate": "2024-07-10",
+      "endDate": "2024-07-12",
+      "reason": "Out of Ciity",
+      "status": "rejected"
+    },
+    {
+      "id": "c648",
+      "employeeId": 2,
+      "startDate": "2024-07-10",
+      "endDate": "2024-07-12",
+      "reason": "Out of Ciity",
+      "status": "approved"
+    },
+    {
+      "id": "9dce",
+      "employeeId": 2,
+      "startDate": "2021-12-31",
+      "endDate": "",
+      "reason": "sick leave",
+      "status": "approved"
+    },
+    {
+      "id": "4f8a",
+      "employeeId": "3",
+      "startDate": "2022-07-10",
+      "endDate": "2222-02-02",
+      "reason": "abc",
+      "status": "approved"
+    },
+    {
+      "id": "6389",
+      "employeeId": "3",
+      "startDate": "2022-07-10",
+      "endDate": "2222-02-02",
+      "reason": "abc",
+      "status": "rejected"
+    },
+    {
+      "id": "58e4",
+      "employeeId": "2",
+      "startDate": "2020-01-01",
+      "endDate": "2020-02-01",
+      "reason": "abc",
+      "status": "approved"
+    }
+  ]
+} */

@@ -1,0 +1,186 @@
+/* Register.css */
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-card {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.register-form {
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+.register-form h2 {
+  margin-bottom: 3rem;
+  font-size: 24px;
+  color: #333;
+  text-align: left;
+  margin-top: 0;
+  position: relative;
+}
+
+.register-form h2::after {
+  content: '';
+  display: block;
+  width: 25px; 
+  height: 2px; 
+  background-color: #007bff; 
+  position: absolute;
+  left: 0;
+}
+
+
+.register-form .input-group {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.register-form .input-group .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #007bff;
+}
+
+.register-form .input-group input {
+  width: 85%;
+  padding: 10px 35px 10px 35px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  padding-right: 2rem; 
+  margin-left: 10px;
+}
+
+.register-form .input-group label {
+  position: absolute;
+  top: 50%;
+  left: 45px;
+  transform: translateY(-50%);
+  color: #656565;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.register-form .input-group input:focus + label,
+.register-form .input-group.filled label {
+  top: -10px;
+  left: 45px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.register-form .input-group input:focus {
+  border-bottom: 2px solid #007bff;
+}
+
+.register-form .toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #007bff;
+}
+
+.register-form .error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  position: absolute;
+  bottom: 2px;
+  left: 45px;
+  transform: translateY(20px);
+}
+
+.forgot-password {
+  margin-bottom: 2.5rem;
+}
+
+.forgot-password a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-btn {
+  width: 90%;
+  margin: 0 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 20px;
+}
+
+.register-btn:hover {
+  background-color: #0056b3;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f0f8ff;
+}
+
+.register-image img {
+  width: 80%;
+  height: auto;
+}
+
+
+@media (max-width: 767px) {
+
+  .register-container .register-card {
+    flex-direction: column-reverse;
+  }
+
+  .register-image {
+    display: flex;
+  }
+
+  .register-btn {
+    width: 90%;
+  }
+  .register-form .input-group input{
+    width: 80%;
+  }
+
+  .register-container .register-form {
+    padding: 1rem;
+    width: 90%;
+  }
+
+  .register-container .register-card {
+    padding: 1rem;
+    width: 100%;
+    box-shadow: none;
+  }
+}
