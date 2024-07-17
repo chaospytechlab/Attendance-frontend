@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
 }
-
+/* 
 .logo {
   height: 50px;
 }
@@ -38,7 +38,7 @@
 
 .nav-links a:hover {
   color: #007bff;
-}
+} */
 
 .login-container {
   display: flex;

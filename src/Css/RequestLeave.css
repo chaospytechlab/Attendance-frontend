@@ -3,7 +3,7 @@
 .request-leave-page {
   font-family: Arial, sans-serif;
 }
-
+/* 
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -30,7 +30,7 @@
 .nav-links a {
   color: #fff;
   text-decoration: none;
-}
+} */
 
 .leave-request-form {
   max-width: 500px;

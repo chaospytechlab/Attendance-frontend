@@ -2,36 +2,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
   padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
 }
 
-.logo {
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+}
+
+.navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-links li {
-  margin: 0;
-}
-
-.nav-links a,
-.nav-links button {
+.navbar-links a {
+  margin: 0 0.5rem;
   text-decoration: none;
   color: #007bff;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.nav-links button:hover,
-.nav-links a:hover {
-  text-decoration: underline;
 }

@@ -3,7 +3,7 @@
 .profile-container {
     font-family: Arial, sans-serif;
 }
-
+/* 
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@
 .nav-links a {
     color: #fff;
     text-decoration: none;
-}
+} */
 
 .profile-header {
     display: flex;
