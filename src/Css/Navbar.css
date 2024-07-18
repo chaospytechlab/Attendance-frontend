@@ -3,8 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
+  margin: 0 30px;
 }
 
 .navbar-left {
@@ -13,8 +12,8 @@
 }
 
 .navbar-logo {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   margin-right: 1rem;
 }
 
@@ -26,5 +25,8 @@
 .navbar-links a {
   margin: 0 0.5rem;
   text-decoration: none;
+  color: #656565;
+}
+.navbar-links a:hover{
   color: #007bff;
 }

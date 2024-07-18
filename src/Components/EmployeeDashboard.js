@@ -27,7 +27,7 @@
 
 // const EmployeeDashboard = ({ user, onLogout }) => {
 //   const [attendance, setAttendance] = useState([]);
-//   const [leaves, setLeaves] = useState([]);
+  // const [leaves, setLeaves] = useState([]);
 //   const [error, setError] = useState(null);
 //   const [isCheckedIn, setIsCheckedIn] = useState(false);
 //   const [hasCheckedOutToday, setHasCheckedOutToday] = useState(false);
@@ -208,46 +208,46 @@
 //     return totalDays === 0 ? 'N/A' : `${((presentDays / totalDays) * 100).toFixed(2)}%`;
 //   };
 
-//   const pendingLeaves = leaves.filter(leave => leave.status === 'pending').length;
-//   const approvedLeaves = leaves.filter(leave => leave.status === 'approved').length;
-//   const rejectedLeaves = leaves.filter(leave => leave.status === 'rejected').length;
-//   const leaveData = {
-//     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-//     datasets: [
-//       {
-//         label: 'Number of Leaves',
-//         data: Array(12).fill(0).map((_, monthIndex) => {
-//           const monthName = ('0' + (monthIndex + 1)).slice(-2); // Formatting month to 'MM' format
-//           return leaves.filter(leave => leave.startDate.includes(`-${monthName}-`)).length;
-//         }),
-//         fill: false,
-//         backgroundColor: 'blue',
-//         borderColor: '#2596BE',
-//       },
-//     ],
-//   };
+  // const pendingLeaves = leaves.filter(leave => leave.status === 'pending').length;
+  // const approvedLeaves = leaves.filter(leave => leave.status === 'approved').length;
+  // const rejectedLeaves = leaves.filter(leave => leave.status === 'rejected').length;
+  // const leaveData = {
+  //   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+  //   datasets: [
+  //     {
+  //       label: 'Number of Leaves',
+  //       data: Array(12).fill(0).map((_, monthIndex) => {
+  //         const monthName = ('0' + (monthIndex + 1)).slice(-2); // Formatting month to 'MM' format
+  //         return leaves.filter(leave => leave.startDate.includes(`-${monthName}-`)).length;
+  //       }),
+  //       fill: false,
+  //       backgroundColor: 'blue',
+  //       borderColor: '#2596BE',
+  //     },
+  //   ],
+  // };
 
-//   const options = {
-//     maintainAspectRatio: false,
-//     scales: {
-//       y: {
-//         beginAtZero: true,
-//         ticks: {
-//           stepSize: 5,
-//           precision: 0,
-//         },
-//         grid: {
-//           color: '#e0e0e0',
-//           lineWidth: 0.5,
-//         },
-//       },
-//       x: {
-//         grid: {
-//           display: false,
-//         },
-//       },
-//     },
-//   };
+  // const options = {
+  //   maintainAspectRatio: false,
+  //   scales: {
+  //     y: {
+  //       beginAtZero: true,
+  //       ticks: {
+  //         stepSize: 5,
+  //         precision: 0,
+  //       },
+  //       grid: {
+  //         color: '#e0e0e0',
+  //         lineWidth: 0.5,
+  //       },
+  //     },
+  //     x: {
+  //       grid: {
+  //         display: false,
+  //       },
+  //     },
+  //   },
+  // };
 
 //   if (error) {
 //     return <div>Error: {error}</div>;
@@ -337,13 +337,13 @@
 //         </div>
 //       </div>  
 
-//       <section className="leave-chart">
-//         <h3>Leave Management</h3>
-//         <div className="chart-container">
-//           <Line data={leaveData} options={options} />
-//         </div>
-//       </section>
-//     </div>
+    //   <section className="leave-chart">
+    //     <h3>Leave Management</h3>
+    //     <div className="chart-container">
+    //       <Line data={leaveData} options={options} />
+    //     </div>
+    //   </section>
+    // </div>
 //   );
 // };
 
@@ -355,18 +355,50 @@
 // import { Link, useNavigate } from 'react-router-dom';
 // import '../Css/EmployeeDashboard.css';
 
+
 import React, { useState } from 'react';
+import { Line } from 'react-chartjs-2';
 import '../Css/EmployeeDashboard.css';
 import Navbar from './Navbar';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import Modal from 'react-modal';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
+
+
+import {
+  Chart as ChartJS,
+  LineElement,
+  PointElement,
+  LinearScale,
+  CategoryScale,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+// Register the components for Chart.js
+ChartJS.register(
+  LineElement,
+  PointElement,
+  LinearScale,
+  CategoryScale,
+  Title,
+  Tooltip,
+  Legend
+);
+
 
 Modal.setAppElement('#root'); // Bind modal to the app element
 
 const EmployeeDashboard = () => {
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [presentPercentage, setPresentPercentage] = useState(50); // Example value
+    const [leavePercentage, setLeavePercentage] = useState(30); // Example value
+    const [leaves, setLeaves] = useState([]);
 
     const openCalendar = () => {
         setIsCalendarOpen(true);
@@ -380,17 +412,60 @@ const EmployeeDashboard = () => {
         setSelectedDate(date);
         closeCalendar();
     };
-
+    
+  const pendingLeaves = leaves.filter(leave => leave.status === 'pending').length;
+  const approvedLeaves = leaves.filter(leave => leave.status === 'approved').length;
+  const rejectedLeaves = leaves.filter(leave => leave.status === 'rejected').length;
+    const leaveData = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+      datasets: [
+        {
+          label: 'Number of Leaves',
+          data: Array(12).fill(0).map((_, monthIndex) => {
+            const monthName = ('0' + (monthIndex + 1)).slice(-2); // Formatting month to 'MM' format
+            return leaves.filter(leave => leave.startDate.includes(`-${monthName}-`)).length;
+          }),
+          fill: false,
+          backgroundColor: 'blue',
+          borderColor: '#2596BE',
+        },
+      ],
+    };
+  
+    const options = {
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 5,
+            precision: 0,
+          },
+          grid: {
+            color: '#e0e0e0',
+            lineWidth: 0.5,
+          },
+        },
+        x: {
+          grid: {
+            display: false,
+          },
+        },
+      },
+    };
     return (
         <div className="dashboard">
             <Navbar />
             <div className="container">
-                <div className="header">
-                    <h1>Attendance</h1>
-                    <div className="date-display" onClick={openCalendar}>
-                        {selectedDate.toLocaleDateString('default', { month: 'short', year: 'numeric' })}
-                    </div>
-                </div>
+            <div className="header">
+          <h1>Attendance</h1>
+          <div className="date-display" onClick={openCalendar}>
+            <i className="fa fa-calendar"></i>
+            <span className="date-text">
+              {selectedDate.toLocaleDateString('default', { month: 'short', year: 'numeric' })}
+            </span>
+          </div>
+        </div>
                 <div className="profile-section">
                     <div className="profile">
                         <img src="profile-pic-url" alt="Amanda Kherr" className="profile-pic" />
@@ -400,38 +475,77 @@ const EmployeeDashboard = () => {
                             <p>Amanda.Kherr@gmail.com</p>
                         </div>
                     </div>
+                   
                     <div className="stats">
                         <div className="stat">
-                            <h3>50%</h3>
-                            <p>Present</p>
+                            <CircularProgressbar 
+                                value={presentPercentage} 
+                                text={`${presentPercentage}%`}
+                                styles={buildStyles({
+                                    pathColor: `#007bff`,
+                                    textColor: '#007bff',
+                                    trailColor: '#d6d6d6',
+                                })}
+                            />
+                            <div className="stat-text">
+                                <p>Present</p>
+                            </div>
                         </div>
                         <div className="stat">
-                            <h3>30%</h3>
-                            <p>Leave</p>
+                            <CircularProgressbar 
+                                value={leavePercentage} 
+                                text={`${leavePercentage}%`}
+                                styles={buildStyles({
+                                    pathColor: `#007bff`,
+                                    textColor: '#007bff',
+                                    trailColor: '#d6d6d6',
+                                })}
+                            />
+                            <div className="stat-text">
+                                <p>Leave</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="buttons">
-                    <button>Checkin</button>
-                    <button>Checkout</button>
-                </div>
-                <div className="leave-request">
-                    <h3>Leave Request</h3>
-                    <p>Send Leave request</p>
-                    <div className="leave-stats">
-                        <div className="leave-stat">Pending Leave <span>06</span></div>
-                        <div className="leave-stat">Approval Leave <span>06</span></div>
-                        <div className="leave-stat">Rejected Leave <span>01</span></div>
+                <div className="leave-checkin-section">
+                    <div className="leave-request">
+                        <h3>Leave Request</h3>
+                        <p>Send Leave request</p>
+                    </div>
+                    <div className="buttons">
+                        <button>Checkin</button>
+                        <button>Checkout</button>
                     </div>
                 </div>
-                <div className="leave-manage">
-                    <h3>Leave Manage</h3>
-                    <p>Monthly Leave chart manage your own leave</p>
-                    <div className="chart">
-                        {/* Chart content can be added here */}
+               {/* Add this new section for leave stats */}
+               <div className="leave-stats-section">
+                    <div className="leave-stat">
+                        <h4>Pending Leave</h4>
+                        <p>06</p>
+                    </div>
+                    <div className="leave-stat">
+                        <h4>Approved Leave</h4>
+                        <p>06</p>
+                    </div>
+                    <div className="leave-stat">
+                        <h4>Rejected Leave</h4>
+                        <p>01</p>
                     </div>
                 </div>
-            </div>
+                <div  className="leave-chart-sec">
+                <h3>Leave Statistics</h3>
+                <h4>Total number of leaves per month</h4>
+                </div>
+              
+                <div className="leave-chart">
+                   
+                    <div className="chart-container">
+                        <Line data={leaveData} options={options} />
+                    </div>
+                </div>
+            
+
+    </div>
             <Modal
                 isOpen={isCalendarOpen}
                 onRequestClose={closeCalendar}
