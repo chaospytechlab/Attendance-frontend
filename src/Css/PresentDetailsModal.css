@@ -1,0 +1,47 @@
+.present-details-modal-overlay {
+  background-color: rgba(128, 128, 128, 0.7); /* Semi-transparent grey background */
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999; /* Ensure overlay is above other content */
+  pointer-events: auto; /* Allow interaction with the modal only */
+}
+
+.present-details-modal {
+  position: fixed; /* Fixed position for centering */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the modal */
+  background-color: #fff; /* White background for the modal */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  width: 100%; /* Fixed width for the modal */
+  max-width: 80%; /* Optional: responsive max-width */
+  z-index: 1000; /* Ensure modal is above the overlay */
+}
+
+.present-details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.present-details-table th,
+.present-details-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.present-details-table th {
+  background-color: #f4f4f4;
+}
+
+.close-button {
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}

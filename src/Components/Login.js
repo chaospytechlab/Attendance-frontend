@@ -199,7 +199,7 @@ function Login({ setUser }) {
 
   return (
     <div className="page-container">
-      <header className="header">
+      {/* <header className="header">
         <img src={logo} alt="Logo" className="logo" />
         <nav>
           <ul className="nav-links">
@@ -209,7 +209,7 @@ function Login({ setUser }) {
             <li><Link to="/login">Login</Link></li>
           </ul>
         </nav>
-      </header>
+      </header> */}
       <div className="login-container">
         <div className="login-card">
           <div className="login-form">

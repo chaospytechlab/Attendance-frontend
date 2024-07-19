@@ -1,9 +1,9 @@
-/* Profile.css */
+/* Profile.css
 
 .profile-container {
     font-family: Arial, sans-serif;
 }
-/* 
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@
 .nav-links a {
     color: #fff;
     text-decoration: none;
-} */
+} 
 
 .profile-header {
     display: flex;
@@ -68,7 +68,7 @@
 /* 
 .profile-info {
     text-align: center;
-} */
+} 
 
 .profile-info p {
     margin: 10px 0;
@@ -77,4 +77,124 @@
 
 .profile-info p strong {
     color: #333;
-}
+} */
+
+
+.profile-container {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 1300px;
+    padding: 20px;
+  }
+  
+  .profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-card {
+    height: 220px;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-header {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    background-color: white;
+    padding: 0 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .profile-pic {
+    flex-shrink: 0;
+    margin-right: 20px;
+  }
+  
+  .profile-pic img {
+    border-radius: 8px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .profile-info {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .profile-info h2 {
+    /* margin: 0; */
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .profile-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .profile-info p span {
+    color: #007bff;
+  }
+  
+  .edit-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .edit-icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .profile-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .action-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .action-card h3 {
+    margin-bottom: 10px;
+  }
+  
+  .action-card p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .action-card .action-icon {
+    font-size: 24px;
+    color: #007bff;
+  }
+  

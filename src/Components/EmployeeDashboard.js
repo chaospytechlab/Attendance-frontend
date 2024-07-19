@@ -129,61 +129,61 @@
 
 //     fetchAttendance();
 //     fetchLeaves();
-//   }, [user.id]);
+  // }, [user.id]);
 
-//   const handleCheckIn = async () => {
-//     const currentTime = new Date().toLocaleTimeString();
-//     const currentDate = new Date().toISOString().split('T')[0];
-//     try {
-//       const response = await fetch('http://localhost:3001/attendance', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({
-//           employeeId: user.id,
-//           date: currentDate,
-//           status: 'present',
-//           checkInTime: currentTime
-//         })
-//       });
-//       if (!response.ok) throw new Error('Failed to check in');
-//       const newRecord = await response.json();
-//       setAttendance([...attendance, newRecord]);
-//       setIsCheckedIn(true);
-//       setCheckInTime(currentTime);
-//       alert(`Checked in at ${currentTime}`);
-//     } catch (error) {
-//       setError(error.message);
-//     }
-//   };
+  // const handleCheckIn = async () => {
+  //   const currentTime = new Date().toLocaleTimeString();
+  //   const currentDate = new Date().toISOString().split('T')[0];
+  //   try {
+  //     const response = await fetch('http://localhost:3001/attendance', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({
+  //         employeeId: user.id,
+  //         date: currentDate,
+  //         status: 'present',
+  //         checkInTime: currentTime
+  //       })
+  //     });
+  //     if (!response.ok) throw new Error('Failed to check in');
+  //     const newRecord = await response.json();
+  //     setAttendance([...attendance, newRecord]);
+  //     setIsCheckedIn(true);
+  //     setCheckInTime(currentTime);
+  //     alert(`Checked in at ${currentTime}`);
+  //   } catch (error) {
+  //     setError(error.message);
+  //   }
+  // };
 
-//   const handleCheckOut = async () => {
-//     const currentTime = new Date().toLocaleTimeString();
-//     const currentDate = new Date().toISOString().split('T')[0];
-//     const todayRecord = attendance.find(record => record.date === currentDate && record.employeeId === user.id);
-//     if (todayRecord) {
-//       try {
-//         const response = await fetch(`http://localhost:3001/attendance/${todayRecord.id}`, {
-//           method: 'PATCH',
-//           headers: { 'Content-Type': 'application/json' },
-//           body: JSON.stringify({
-//             checkOutTime: currentTime
-//           })
-//         });
-//         if (!response.ok) throw new Error('Failed to check out');
-//         setAttendance(attendance.map(record =>
-//           record.id === todayRecord.id ? { ...record, checkOutTime: currentTime } : record
-//         ));
-//         setIsCheckedIn(false);
-//         setHasCheckedOutToday(true);
-//         setCheckOutTime(currentTime);
-//         alert(`Checked out at ${currentTime}`);
-//       } catch (error) {
-//         setError(error.message);
-//       }
-//     } else {
-//       alert('No check-in record found for today.');
-//     }
-//   };
+  // const handleCheckOut = async () => {
+  //   const currentTime = new Date().toLocaleTimeString();
+  //   const currentDate = new Date().toISOString().split('T')[0];
+  //   const todayRecord = attendance.find(record => record.date === currentDate && record.employeeId === user.id);
+  //   if (todayRecord) {
+  //     try {
+  //       const response = await fetch(`http://localhost:3001/attendance/${todayRecord.id}`, {
+  //         method: 'PATCH',
+  //         headers: { 'Content-Type': 'application/json' },
+  //         body: JSON.stringify({
+  //           checkOutTime: currentTime
+  //         })
+  //       });
+  //       if (!response.ok) throw new Error('Failed to check out');
+  //       setAttendance(attendance.map(record =>
+  //         record.id === todayRecord.id ? { ...record, checkOutTime: currentTime } : record
+  //       ));
+  //       setIsCheckedIn(false);
+  //       setHasCheckedOutToday(true);
+  //       setCheckOutTime(currentTime);
+  //       alert(`Checked out at ${currentTime}`);
+  //     } catch (error) {
+  //       setError(error.message);
+  //     }
+  //   } else {
+  //     alert('No check-in record found for today.');
+  //   }
+  // };
 
 //   const handleRequestLeave = () => {
 //     navigate('/leavemanagement');
@@ -304,23 +304,23 @@
 //           {message && <p>{message}</p>}
 //         </div>
 
-//         <div className="right-btn">
-//           <button 
-//             className={`btn check-in-btn ${isCheckedIn || hasCheckedOutToday || checkInRequestSent ? 'disabled' : ''}`} 
-//             onClick={handleCheckIn} 
-//             disabled={isCheckedIn || hasCheckedOutToday || checkInRequestSent}
-//           >
-//             Check In
-//           </button>
-//           <button 
-//             className={`btn check-out-btn ${!isCheckedIn || hasCheckedOutToday ? 'disabled' : ''}`} 
-//             onClick={handleCheckOut} 
-//             disabled={!isCheckedIn || hasCheckedOutToday}
-//           >
-//             Check Out
-//           </button>
-//         </div>
-//       </div>
+      //   <div className="right-btn">
+      //     <button 
+      //       className={`btn check-in-btn ${isCheckedIn || hasCheckedOutToday || checkInRequestSent ? 'disabled' : ''}`} 
+      //       onClick={handleCheckIn} 
+      //       disabled={isCheckedIn || hasCheckedOutToday || checkInRequestSent}
+      //     >
+      //       Check In
+      //     </button>
+      //     <button 
+      //       className={`btn check-out-btn ${!isCheckedIn || hasCheckedOutToday ? 'disabled' : ''}`} 
+      //       onClick={handleCheckOut} 
+      //       disabled={!isCheckedIn || hasCheckedOutToday}
+      //     >
+      //       Check Out
+      //     </button>
+      //   </div>
+      // </div>
 
 //       <div className="leave-summary">
 //         <div className="summary-item">
@@ -349,25 +349,18 @@
 
 // export default EmployeeDashboard;
 
-
-// import React, { useEffect, useState } from 'react';
-// import { Line } from 'react-chartjs-2';
-// import { Link, useNavigate } from 'react-router-dom';
-// import '../Css/EmployeeDashboard.css';
-
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { Line } from 'react-chartjs-2';
 import '../Css/EmployeeDashboard.css';
 import Navbar from './Navbar';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import Modal from 'react-modal';
+import LeaveDetailsModal from './LeaveDetailsModal';
+import PresentDetailsModal from './PresentDetailsModal'; // Import new modal component
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
-
-
 import {
   Chart as ChartJS,
   LineElement,
@@ -379,7 +372,6 @@ import {
   Legend,
 } from 'chart.js';
 
-// Register the components for Chart.js
 ChartJS.register(
   LineElement,
   PointElement,
@@ -390,74 +382,203 @@ ChartJS.register(
   Legend
 );
 
+Modal.setAppElement('#root');
 
-Modal.setAppElement('#root'); // Bind modal to the app element
+const EmployeeDashboard = ({ user }) => {
+  const navigate = useNavigate(); 
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [presentPercentage, setPresentPercentage] = useState(50);
+  const [leavePercentage, setLeavePercentage] = useState(30);
+  const [leaves, setLeaves] = useState([]);
+  const [present, setPresent] = useState([]);
+  const [filteredLeaves, setFilteredLeaves] = useState([]);
+  const [selectedStatus, setSelectedStatus] = useState(''); // Track selected status
+  const [isLeaveModalOpen, setIsLeaveModalOpen] = useState(false);
+  const [isPresentModalOpen, setIsPresentModalOpen] = useState(false); // New state for present modal
+  const [selectedEmployeeId, setSelectedEmployeeId] = useState(user.id);
+  const [error, setError] = useState(null);
 
-const EmployeeDashboard = () => {
-    const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const [presentPercentage, setPresentPercentage] = useState(50); // Example value
-    const [leavePercentage, setLeavePercentage] = useState(30); // Example value
-    const [leaves, setLeaves] = useState([]);
+  const [isCheckedIn, setIsCheckedIn] = useState(false);
+  const [hasCheckedOutToday, setHasCheckedOutToday] = useState(false);
+  const [checkInRequestSent, setCheckInRequestSent] = useState(false);
+  const [checkInTime, setCheckInTime] = useState('');
+  const [checkOutTime, setCheckOutTime] = useState('');
 
-    const openCalendar = () => {
-        setIsCalendarOpen(true);
+  useEffect(() => {
+    const fetchLeaves = async () => {
+      try {
+        const response = await fetch(`http://localhost:3001/leaves?employeeId=${user.id}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        setLeaves(data);
+        setFilteredLeaves(data); // Set filtered leaves initially to all leaves
+      } catch (error) {
+        setError(error.message);
+      }
     };
 
-    const closeCalendar = () => {
-        setIsCalendarOpen(false);
+    const fetchPresent = async () => {
+      try {
+        const response = await fetch(`http://localhost:3001/attendance?employeeId=${user.id}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        setPresent(data);
+      } catch (error) {
+        setError(error.message);
+      }
     };
 
-    const onDateChange = (date) => {
-        setSelectedDate(date);
-        closeCalendar();
-    };
-    
-  const pendingLeaves = leaves.filter(leave => leave.status === 'pending').length;
-  const approvedLeaves = leaves.filter(leave => leave.status === 'approved').length;
-  const rejectedLeaves = leaves.filter(leave => leave.status === 'rejected').length;
-    const leaveData = {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-      datasets: [
-        {
-          label: 'Number of Leaves',
-          data: Array(12).fill(0).map((_, monthIndex) => {
-            const monthName = ('0' + (monthIndex + 1)).slice(-2); // Formatting month to 'MM' format
-            return leaves.filter(leave => leave.startDate.includes(`-${monthName}-`)).length;
-          }),
-          fill: false,
-          backgroundColor: 'blue',
-          borderColor: '#2596BE',
-        },
-      ],
-    };
+    fetchLeaves();
+    fetchPresent();
+  }, [user.id]);
+
+   // Navigate to ProfilePage
+   const goToProfile = () => {
+    navigate('/profile');
+  };
+
+  const openCalendar = () => setIsCalendarOpen(true);
+  const closeCalendar = () => setIsCalendarOpen(false);
+
+  const onDateChange = (date) => {
+    setSelectedDate(date);
+    closeCalendar();
+  };
+
+  const openLeaveModal = () => setIsLeaveModalOpen(true);
+  const closeLeaveModal = () => setIsLeaveModalOpen(false);
+
+  const openPresentModal = () => {
+    console.log('Present Modal Opened');
+    setIsPresentModalOpen(true);
+  };
   
-    const options = {
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            stepSize: 5,
-            precision: 0,
-          },
-          grid: {
-            color: '#e0e0e0',
-            lineWidth: 0.5,
-          },
+  const closePresentModal = () => {
+    console.log('Present Modal Closed');
+    setIsPresentModalOpen(false);
+  };
+
+  // Filter functions
+  const showPendingLeaves = () => {
+    setSelectedStatus('pending');
+    setFilteredLeaves(leaves.filter(leave => leave.status === 'pending'));
+    openLeaveModal();
+  };
+  
+  const showApprovedLeaves = () => {
+    setSelectedStatus('approved');
+    setFilteredLeaves(leaves.filter(leave => leave.status === 'approved'));
+    openLeaveModal();
+  };
+
+  const showRejectedLeaves = () => {
+    setSelectedStatus('reject');
+    setFilteredLeaves(leaves.filter(leave => leave.status === 'rejected'));
+    openLeaveModal();
+  };
+
+  const leaveDetails = filteredLeaves; 
+  const presentDetails = present; // Present details
+
+  const leaveData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+      {
+        label: 'Number of Leaves',
+        data: Array(12).fill(0).map((_, monthIndex) => {
+          const monthName = ('0' + (monthIndex + 1)).slice(-2);
+          return leaves.filter(leave => leave.startDate.includes(`-${monthName}-`)).length;
+        }),
+        fill: false,
+        backgroundColor: 'blue',
+        borderColor: '#2596BE',
+      },
+    ],
+  };
+
+  const options = {
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 5,
+          precision: 0,
         },
-        x: {
-          grid: {
-            display: false,
-          },
+        grid: {
+          color: '#e0e0e0',
+          lineWidth: 0.5,
         },
       },
-    };
-    return (
-        <div className="dashboard">
-            <Navbar />
-            <div className="container">
-            <div className="header">
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+    },
+  };
+
+  const handleCheckIn = async () => {
+    const currentTime = new Date().toLocaleTimeString();
+    const currentDate = new Date().toISOString().split('T')[0];
+    try {
+      const response = await fetch('http://localhost:3001/attendance', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          employeeId: user.id,
+          date: currentDate,
+          status: 'present',
+          checkInTime: currentTime
+        })
+      });
+      if (!response.ok) throw new Error('Failed to check in');
+      const newRecord = await response.json();
+      setPresent([...present, newRecord]);
+      setIsCheckedIn(true);
+      setCheckInTime(currentTime);
+      setCheckInRequestSent(true);
+      alert(`Checked in at ${currentTime}`);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const handleCheckOut = async () => {
+    const currentTime = new Date().toLocaleTimeString();
+    const currentDate = new Date().toISOString().split('T')[0];
+    const todayRecord = present.find(record => record.date === currentDate && record.employeeId === user.id);
+    if (todayRecord) {
+      try {
+        const response = await fetch(`http://localhost:3001/attendance/${todayRecord.id}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            checkOutTime: currentTime
+          })
+        });
+        if (!response.ok) throw new Error('Failed to check out');
+        setPresent(present.map(record =>
+          record.id === todayRecord.id ? { ...record, checkOutTime: currentTime } : record
+        ));
+        setIsCheckedIn(false);
+        setHasCheckedOutToday(true);
+        setCheckOutTime(currentTime);
+        alert(`Checked out at ${currentTime}`);
+      } catch (error) {
+        setError(error.message);
+      }
+    } else {
+      alert('No check-in record found for today.');
+    }
+  };
+
+  return (
+    <div className="dashboard">
+      <Navbar />
+      <div className="container">
+        <div className="header">
           <h1>Attendance</h1>
           <div className="date-display" onClick={openCalendar}>
             <i className="fa fa-calendar"></i>
@@ -466,98 +587,114 @@ const EmployeeDashboard = () => {
             </span>
           </div>
         </div>
-                <div className="profile-section">
-                    <div className="profile">
-                        <img src="profile-pic-url" alt="Amanda Kherr" className="profile-pic" />
-                        <div className="profile-info">
-                            <h2>Amanda Kherr</h2>
-                            <p>Developer (Social Media)</p>
-                            <p>Amanda.Kherr@gmail.com</p>
-                        </div>
-                    </div>
-                   
-                    <div className="stats">
-                        <div className="stat">
-                            <CircularProgressbar 
-                                value={presentPercentage} 
-                                text={`${presentPercentage}%`}
-                                styles={buildStyles({
-                                    pathColor: `#007bff`,
-                                    textColor: '#007bff',
-                                    trailColor: '#d6d6d6',
-                                })}
-                            />
-                            <div className="stat-text">
-                                <p>Present</p>
-                            </div>
-                        </div>
-                        <div className="stat">
-                            <CircularProgressbar 
-                                value={leavePercentage} 
-                                text={`${leavePercentage}%`}
-                                styles={buildStyles({
-                                    pathColor: `#007bff`,
-                                    textColor: '#007bff',
-                                    trailColor: '#d6d6d6',
-                                })}
-                            />
-                            <div className="stat-text">
-                                <p>Leave</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="leave-checkin-section">
-                    <div className="leave-request">
-                        <h3>Leave Request</h3>
-                        <p>Send Leave request</p>
-                    </div>
-                    <div className="buttons">
-                        <button>Checkin</button>
-                        <button>Checkout</button>
-                    </div>
-                </div>
-               {/* Add this new section for leave stats */}
-               <div className="leave-stats-section">
-                    <div className="leave-stat">
-                        <h4>Pending Leave</h4>
-                        <p>06</p>
-                    </div>
-                    <div className="leave-stat">
-                        <h4>Approved Leave</h4>
-                        <p>06</p>
-                    </div>
-                    <div className="leave-stat">
-                        <h4>Rejected Leave</h4>
-                        <p>01</p>
-                    </div>
-                </div>
-                <div  className="leave-chart-sec">
-                <h3>Leave Statistics</h3>
-                <h4>Total number of leaves per month</h4>
-                </div>
-              
-                <div className="leave-chart">
-                   
-                    <div className="chart-container">
-                        <Line data={leaveData} options={options} />
-                    </div>
-                </div>
-            
-
-    </div>
-            <Modal
-                isOpen={isCalendarOpen}
-                onRequestClose={closeCalendar}
-                contentLabel="Select Date"
-                className="calendar-modal"
-                overlayClassName="calendar-modal-overlay"
-            >
-                <Calendar onChange={onDateChange} value={selectedDate} />
-                <button onClick={closeCalendar} className="close-button">Close</button>
-            </Modal>
+        <div className="profile-section"  onClick={goToProfile}>
+          <div className="profile">
+            <img src="profile-pic-url" alt="Amanda Kherr" className="profile-pic" />
+            <div className="profile-info">
+              <h2>Amanda Kherr</h2>
+              <p>Developer (Social Media)</p>
+              <p>Amanda.Kherr@gmail.com</p>
+            </div>
+          </div>
+          <div className="stats">
+            <div className="stat"  onClick={openPresentModal}>
+              <CircularProgressbar 
+                value={presentPercentage} 
+                text={`${presentPercentage}%`}
+                styles={buildStyles({
+                  pathColor: `#007bff`,
+                  textColor: '#007bff',
+                  trailColor: '#d6d6d6',
+                })}
+              />
+              <div className="stat-text">
+                <p>Present</p>
+              </div>
+            </div>
+            <div className="stat">
+              <CircularProgressbar 
+                value={leavePercentage} 
+                text={`${leavePercentage}%`}
+                styles={buildStyles({
+                  pathColor: `#007bff`,
+                  textColor: '#007bff',
+                  trailColor: '#d6d6d6',
+                })}
+              />
+              <div className="stat-text">
+                <p>Leave</p>
+              </div>
+            </div>
+          </div>
         </div>
-    );
+        <div className="leave-checkin-section">
+          <div className="leave-request">
+            <h3>Leave Request</h3>
+            <p>Send Leave request</p>
+          </div>
+          <div className="buttons">
+            <button
+              className={`btn check-in-btn ${isCheckedIn || hasCheckedOutToday || checkInRequestSent ? 'disabled' : ''}`}
+              onClick={handleCheckIn}
+              disabled={isCheckedIn || hasCheckedOutToday || checkInRequestSent}
+            >
+              Check In
+            </button>
+            <button
+              className={`btn check-out-btn ${!isCheckedIn || hasCheckedOutToday ? 'disabled' : ''}`}
+              onClick={handleCheckOut}
+              disabled={!isCheckedIn || hasCheckedOutToday}
+            >
+              Check Out
+            </button>
+          </div>
+        </div>
+        <div className="leave-stats-section">
+          <div className="leave-stat" onClick={showPendingLeaves}>
+            <h4>Pending Leave</h4>
+            <p>{leaves.filter(leave => leave.status === 'pending').length}</p>
+          </div>
+          <div className="leave-stat" onClick={showApprovedLeaves}>
+            <h4>Approved Leave</h4>
+            <p>{leaves.filter(leave => leave.status === 'approved').length}</p>
+          </div>
+          <div className="leave-stat" onClick={showRejectedLeaves}>
+            <h4>Rejected Leave</h4>
+            <p>{leaves.filter(leave => leave.status === 'rejected').length}</p>
+          </div>
+        </div>
+        <div className="leave-chart-sec">
+          <h3>Leave Statistics</h3>
+          <h4>Total number of leaves per month</h4>
+        </div>
+        <div className="leave-chart">
+          <div className="chart-container">
+            <Line data={leaveData} options={options} />
+          </div>
+        </div>
+      </div>
+      <Modal
+        isOpen={isCalendarOpen}
+        onRequestClose={closeCalendar}
+        contentLabel="Select Date"
+        className="calendar-modal"
+        overlayClassName="calendar-modal-overlay"
+      >
+        <Calendar onChange={onDateChange} value={selectedDate} />
+        <button onClick={closeCalendar} className="close-button">Close</button>
+      </Modal>
+      <LeaveDetailsModal
+        isOpen={isLeaveModalOpen}
+        onRequestClose={closeLeaveModal}
+        leaveDetails={leaveDetails}
+      />
+      <PresentDetailsModal
+        isOpen={isPresentModalOpen}
+        onRequestClose={closePresentModal}
+        presentDetails={presentDetails}
+      />
+    </div>
+  );
 };
 
 export default EmployeeDashboard;
