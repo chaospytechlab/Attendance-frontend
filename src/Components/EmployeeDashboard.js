@@ -361,6 +361,7 @@ import LeaveDetailsModal from './LeaveDetailsModal';
 import PresentDetailsModal from './PresentDetailsModal'; // Import new modal component
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import profile from '../Image/jk.png';
 import {
   Chart as ChartJS,
   LineElement,
@@ -587,17 +588,20 @@ const EmployeeDashboard = ({ user }) => {
             </span>
           </div>
         </div>
-        <div className="profile-section"  onClick={goToProfile}>
-          <div className="profile">
-            <img src="profile-pic-url" alt="Amanda Kherr" className="profile-pic" />
+        <div className="profile-section" >
+          <div className="profile"  onClick={goToProfile}>
+            <img src={profile} alt="Amanda Kherr" className="profile-pic" />
             <div className="profile-info">
               <h2>Amanda Kherr</h2>
               <p>Developer (Social Media)</p>
               <p>Amanda.Kherr@gmail.com</p>
+              {/* <h2>{user.username}</h2>
+              <p>{user.role}</p>
+              <p>{user.email}</p> */}
             </div>
           </div>
           <div className="stats">
-            <div className="stat"  onClick={openPresentModal}>
+            <div className="stat"   onClick={openPresentModal}>
               <CircularProgressbar 
                 value={presentPercentage} 
                 text={`${presentPercentage}%`}
@@ -611,7 +615,7 @@ const EmployeeDashboard = ({ user }) => {
                 <p>Present</p>
               </div>
             </div>
-            <div className="stat">
+            <div className="stat" style={{width:'180px'}}  onClick={openLeaveModal}>
               <CircularProgressbar 
                 value={leavePercentage} 
                 text={`${leavePercentage}%`}

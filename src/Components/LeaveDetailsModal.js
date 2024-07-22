@@ -30,7 +30,7 @@ const LeaveDetailsModal = ({ isOpen, onRequestClose, leaveDetails }) => {
                 <th>Id</th>
                 <th>Start Date</th>
                 <th>End Date</th>
-                <th>Leave Type</th>
+                <th>Reason</th>
                 <th>Status</th>
               </tr>
             </thead>
