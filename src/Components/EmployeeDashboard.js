@@ -261,7 +261,7 @@
 //           <li><Link to="/myattendance">My Attendance</Link></li>
 //           <li><Link to="/leavedetails">Leave Details</Link></li>
 //           <li><Link to="/leavemanagement">Leave Management</Link></li>
-//           <li><Link to="/profile">Profile</Link></li>
+//           <li><Link to="/profile">Profile</></li>
 //           <li><button onClick={onLogout}>Logout</button></li>
 //         </ul>
 //       </nav>

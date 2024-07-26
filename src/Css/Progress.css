@@ -1,4 +1,4 @@
-.progress-header {
+/* .progress-header {
     display: flex;
     margin-bottom: 20px;
     padding: 20px 50px;
@@ -56,4 +56,195 @@ canvas {
     text-align: center;
     font-weight: bold;
     color: #333;
+} */
+
+/* 
+
+.progress-header {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 20px 50px;
+    background: #fff;
+    border-radius: 8px;
+    justify-content: space-between;
 }
+
+.back-arrow, .next-arrow {
+    width: 24px;
+    height: 24px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.progress-title-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 70px;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+    text-align: left;
+}
+
+.progress-subheader {
+    font-size: 16px;
+    color: #656565;
+    margin: 5px 0 0 0;
+}
+
+.progress-container {
+    max-width: 1500px;
+    max-height: 700px;
+    margin: 0 50px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+canvas {
+    max-width: 100%;
+}
+
+.next-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 50px;
+}
+
+.next-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Pop -up Css 
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    text-align: center;
+  }
+  
+  .popup-content img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .popup-content p {
+    margin: 10px 0;
+  }
+  
+  .popup-content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .popup-content button:hover {
+    background-color: #0056b3;
+  }
+   */
+
+   .progress-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .back-arrow {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  
+  .progress-title-container {
+    margin-left: 20px;
+  }
+  
+  .progress-title-container h2 {
+    margin: 0;
+  }
+  
+  .progress-subheader {
+    color: #888;
+  }
+  
+  .progress-container {
+    position: relative;
+    margin: 20px;
+  }
+  
+  .next-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .next-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popup-content img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .popup-content p {
+    margin: 10px 0;
+  }
+  
+  .popup-content button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

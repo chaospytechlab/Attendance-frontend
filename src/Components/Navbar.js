@@ -36,9 +36,9 @@ const Navbar = () => {
         <img src={Logo} alt="Logo" className="navbar-logo" />
       </div>
       <div className="navbar-links">
-        <a href="dashboard">Home</a>
-        <a href="#settings">Setting</a>
-        <a href="#login">Login</a>
+       <Link to="/dashboard">Home</Link>
+       <Link to="/profile">Setting</Link>
+       <Link to="/login">Login</Link>
       </div>
     </nav>
   );
