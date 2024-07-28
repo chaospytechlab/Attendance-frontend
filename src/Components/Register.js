@@ -48,23 +48,46 @@ function Register() {
     return Object.keys(tempErrors).length === 0;
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
       try {
-        await axios.post('http://localhost:3001/users', {
+        const response = await axios.post('http://127.0.0.1:8003/users', {
+        // const response = await axios.post('http://192.168.1.3:8003/users', {
           username,
           email,
           password
         });
+        const userId = response.data.user_id; // Ensure this matches your API response structure
+        localStorage.setItem('userId', userId); // Store the user ID in local storage
         console.log("User registered successfully");
-        alert('Register succesfully');
+        alert('Registered successfully');
         navigate('/login'); // Navigate to login page after successful registration
       } catch (error) {
         console.error("Error registering user:", error);
       }
     }
   };
+  
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (validate()) {
+  //     try {
+  //       await axios.post('http://192.168.1.3:8003/users', {
+  //         username,
+  //         email,
+  //         password
+  //       });
+  //      Storage.setItem('userId', userId); // Store the user ID in local storage
+  //       console.log("User registered successfully");
+  //       alert('Register succesfully');
+  //       navigate('/login'); // Navigate to login page after successful registration
+  //     } catch (error) {
+  //       console.error("Error registering user:", error);
+  //     }
+  //   }
+  // };
 
   return (
     <div className="register-container">

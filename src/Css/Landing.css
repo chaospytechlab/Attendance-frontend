@@ -1,0 +1,82 @@
+.landing-container {
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+    background: #f9f9f9;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-direction: column; /* Adjusted to align wave at the bottom */
+    position: relative;
+}
+
+.main-content {
+    display: flex;
+    /* justify-content: space-between; Adjusted to space content and image */
+    width: 100%;
+    z-index: 1;
+}
+
+.content {
+    max-width: 25%; /* Adjusted to occupy 30-40% */
+    text-align: justify;
+    /* margin-right: 20px; Adjusted spacing */
+    margin-left: 200px;
+    margin-top: 100px;
+}
+
+.content h1 {
+    font-size: 2.5em;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.4em; /* Adjusted font size */
+    color: #777;
+    margin-bottom: 60px;
+}
+
+.get-start-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 15px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.get-start-button:hover {
+    background-color: #2980b9;
+}
+
+.landing-container .image-container {
+    max-width: 50%; /* Adjusted to make image bigger */
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.wave-container {
+    position: absolute;
+    /* bottom: 0; */
+    width: 100%; /* Ensure it spans full width */
+    overflow: hidden;
+    line-height: 0;
+    margin-top: -120px;
+}
+
+.wave-container img {
+    width: 100%;
+    height: auto;
+    /* margin-top: -120px; */
+/*  */
+    /* margin-top: 250px; */
+}

@@ -1,9 +1,9 @@
-/* Profile.css */
+/* Profile.css
 
 .profile-container {
     font-family: Arial, sans-serif;
 }
-/* 
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@
 .nav-links a {
     color: #fff;
     text-decoration: none;
-} */
+} 
 
 .profile-header {
     display: flex;
@@ -68,7 +68,7 @@
 /* 
 .profile-info {
     text-align: center;
-} */
+} 
 
 .profile-info p {
     margin: 10px 0;
@@ -77,4 +77,148 @@
 
 .profile-info p strong {
     color: #333;
+} */
+
+
+
+.profile-container {
+  font-family: Arial, sans-serif;
+  margin: 0 40px;
+  max-width: 1370px;
+  padding: 20px;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 20px 30px;
+  padding-bottom: 50px;
+  border-radius: 8px;
+  /* width: 100%; */
+  background-color: #fff;
+  margin-bottom: 40px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.profile-header h2{
+  text-align: left;
+  margin: 0;
+}
+
+.profile-details {
+  display: flex;
+}
+
+.profile-details .profile-pic {
+  flex-shrink: 0;
+  border-radius: 10%;
+  height: 220px;
+  width: 220px;
+  margin-right: 20px;
+  border: none;
+}
+
+.profile-pic img {
+  border-radius: 10%;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+}
+
+.profile-info {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.profile-details .profile-info h2 {
+  margin: 0;
+  text-align: left;
+  margin-bottom: 20px;
+    font-size: 24px;
+  color: #555;
+}
+
+.profile-info p {
+  margin: 10px 5px;
+  font-size: 16px;
+  color: #007bff;
+  font-size: 17px;
+}
+
+
+.edit-icon {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+}
+
+.edit-icon img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 100%;
+}
+
+.action-card {
+  width: 623px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-decoration: none;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.action-card:hover{
+  border-color: #007bff;
+}
+
+.action-text {
+  text-align: left;
+  margin-left: 30px;
+}
+
+.action-card h3 {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.action-card p {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.action-icon {
+  font-size: 24px;
+  color: #007bff;
+}
+.action-icon img{
+  width: 40px;
 }

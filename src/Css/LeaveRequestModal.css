@@ -1,0 +1,189 @@
+/* In your CSS file */
+.leave-request-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 40px 60px;
+    border-radius: 10px;
+    width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+.leave-request-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.leave-request-popup h1 {
+    margin-bottom: 2px;
+    margin: 0;
+}
+
+.leave-request-popup p {
+    margin: 5px auto;
+    color: #656565;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.leave-request-popup .form-group {
+    margin-bottom: 15px;
+}
+
+.leave-request-popup .form-group label {
+    display: block;
+    font-size: 18px;
+    color: #000000;
+}
+
+.leave-request-popup .form-group span {
+    font-weight: 500;
+    color: #656565;
+    margin: 0 20px;
+}
+
+.leave-request-popup .form-group-dp {
+    display: flex;
+    align-items: center;
+    margin: 30px auto;
+}
+
+.leave-request-popup .form-group-dp label {
+    display: block;
+    font-size: 18px;
+    color: #000000;
+}
+
+.leave-request-popup .form-group-dp span {
+    font-weight: 500;
+    color: #656565;
+    margin: 0 20px;
+}
+
+.leave-request-popup .form-group-dates {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    margin-top: 50px;
+}
+
+.leave-request-popup .form-group-date {
+    display: flex;
+    align-items: center;
+}
+
+.leave-request-popup .form-group-date img {
+    margin-right: 20px;
+}
+
+.leave-request-popup .form-group-date label {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #000000;
+}
+
+.leave-request-popup .form-group-date input {
+    padding: 8px 20px;
+    border: none;
+}
+
+
+.leave-request-popup .form-group-dp select,
+.leave-request-popup .form-group-dp input {
+    width: 70%;
+    padding: 8px 20px;
+    margin-top: 5px;
+    margin-left: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #656565;
+    border-radius: 10px;
+    color: #656565;
+    font-size: 16px;
+}
+
+.leave-request-popup  .end-date{
+    margin-right: -20px;
+}
+
+.leave-request-popup .form-group select,
+.leave-request-popup .form-group input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.leave-request-popup .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    margin-top: 60px;
+}
+
+.leave-request-popup .request-button,
+.leave-request-popup .cancel-button {
+
+    padding: 14px 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 7px;
+}
+
+.leave-request-popup .request-button {
+    margin-right: 25px;
+}
+
+.leave-request-popup .cancel-button {
+    margin-left: 25px;
+}
+
+.leave-request-popup .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .leave-request-popup .form-group-dp,
+    .leave-request-popup .form-group-dates {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .leave-request-popup .form-group-dp select,
+    .leave-request-popup .form-group-dp input,
+    .leave-request-popup .form-group-date input {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .leave-request-popup .form-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leave-request-popup .request-button,
+    .leave-request-popup .cancel-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
