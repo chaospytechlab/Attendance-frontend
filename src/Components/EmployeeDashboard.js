@@ -27,7 +27,7 @@
 
 // const EmployeeDashboard = ({ user, onLogout }) => {
 //   const [attendance, setAttendance] = useState([]);
-  // const [leaves, setLeaves] = useState([]);
+// const [leaves, setLeaves] = useState([]);
 //   const [error, setError] = useState(null);
 //   const [isCheckedIn, setIsCheckedIn] = useState(false);
 //   const [hasCheckedOutToday, setHasCheckedOutToday] = useState(false);
@@ -129,61 +129,61 @@
 
 //     fetchAttendance();
 //     fetchLeaves();
-  // }, [user.id]);
+// }, [user.id]);
 
-  // const handleCheckIn = async () => {
-  //   const currentTime = new Date().toLocaleTimeString();
-  //   const currentDate = new Date().toISOString().split('T')[0];
-  //   try {
-  //     const response = await fetch('http://localhost:3001/attendance', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify({
-  //         employeeId: user.id,
-  //         date: currentDate,
-  //         status: 'present',
-  //         checkInTime: currentTime
-  //       })
-  //     });
-  //     if (!response.ok) throw new Error('Failed to check in');
-  //     const newRecord = await response.json();
-  //     setAttendance([...attendance, newRecord]);
-  //     setIsCheckedIn(true);
-  //     setCheckInTime(currentTime);
-  //     alert(`Checked in at ${currentTime}`);
-  //   } catch (error) {
-  //     setError(error.message);
-  //   }
-  // };
+// const handleCheckIn = async () => {
+//   const currentTime = new Date().toLocaleTimeString();
+//   const currentDate = new Date().toISOString().split('T')[0];
+//   try {
+//     const response = await fetch('http://localhost:3001/attendance', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({
+//         employeeId: user.id,
+//         date: currentDate,
+//         status: 'present',
+//         checkInTime: currentTime
+//       })
+//     });
+//     if (!response.ok) throw new Error('Failed to check in');
+//     const newRecord = await response.json();
+//     setAttendance([...attendance, newRecord]);
+//     setIsCheckedIn(true);
+//     setCheckInTime(currentTime);
+//     alert(`Checked in at ${currentTime}`);
+//   } catch (error) {
+//     setError(error.message);
+//   }
+// };
 
-  // const handleCheckOut = async () => {
-  //   const currentTime = new Date().toLocaleTimeString();
-  //   const currentDate = new Date().toISOString().split('T')[0];
-  //   const todayRecord = attendance.find(record => record.date === currentDate && record.employeeId === user.id);
-  //   if (todayRecord) {
-  //     try {
-  //       const response = await fetch(`http://localhost:3001/attendance/${todayRecord.id}`, {
-  //         method: 'PATCH',
-  //         headers: { 'Content-Type': 'application/json' },
-  //         body: JSON.stringify({
-  //           checkOutTime: currentTime
-  //         })
-  //       });
-  //       if (!response.ok) throw new Error('Failed to check out');
-  //       setAttendance(attendance.map(record =>
-  //         record.id === todayRecord.id ? { ...record, checkOutTime: currentTime } : record
-  //       ));
-  //       setIsCheckedIn(false);
-  //       setHasCheckedOutToday(true);
-  //       setCheckOutTime(currentTime);
-  //       alert(`Checked out at ${currentTime}`);
-  //     } catch (error) {
-  //       setError(error.message);
-  //     }
-  //   } else {
-  //     alert('No check-in record found for today.');
-  //   }
-  // };
+// const handleCheckOut = async () => {
+//   const currentTime = new Date().toLocaleTimeString();
+//   const currentDate = new Date().toISOString().split('T')[0];
+//   const todayRecord = attendance.find(record => record.date === currentDate && record.employeeId === user.id);
+//   if (todayRecord) {
+//     try {
+//       const response = await fetch(`http://localhost:3001/attendance/${todayRecord.id}`, {
+//         method: 'PATCH',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({
+//           checkOutTime: currentTime
+//         })
+//       });
+//       if (!response.ok) throw new Error('Failed to check out');
+//       setAttendance(attendance.map(record =>
+//         record.id === todayRecord.id ? { ...record, checkOutTime: currentTime } : record
+//       ));
+//       setIsCheckedIn(false);
+//       setHasCheckedOutToday(true);
+//       setCheckOutTime(currentTime);
+//       alert(`Checked out at ${currentTime}`);
+//     } catch (error) {
+//       setError(error.message);
+//     }
+//   } else {
+//     alert('No check-in record found for today.');
+//   }
+// };
 
 //   const handleRequestLeave = () => {
 //     navigate('/leavemanagement');
@@ -208,46 +208,46 @@
 //     return totalDays === 0 ? 'N/A' : `${((presentDays / totalDays) * 100).toFixed(2)}%`;
 //   };
 
-  // const pendingLeaves = leaves.filter(leave => leave.status === 'pending').length;
-  // const approvedLeaves = leaves.filter(leave => leave.status === 'approved').length;
-  // const rejectedLeaves = leaves.filter(leave => leave.status === 'rejected').length;
-  // const leaveData = {
-  //   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-  //   datasets: [
-  //     {
-  //       label: 'Number of Leaves',
-  //       data: Array(12).fill(0).map((_, monthIndex) => {
-  //         const monthName = ('0' + (monthIndex + 1)).slice(-2); // Formatting month to 'MM' format
-  //         return leaves.filter(leave => leave.startDate.includes(`-${monthName}-`)).length;
-  //       }),
-  //       fill: false,
-  //       backgroundColor: 'blue',
-  //       borderColor: '#2596BE',
-  //     },
-  //   ],
-  // };
+// const pendingLeaves = leaves.filter(leave => leave.status === 'pending').length;
+// const approvedLeaves = leaves.filter(leave => leave.status === 'approved').length;
+// const rejectedLeaves = leaves.filter(leave => leave.status === 'rejected').length;
+// const leaveData = {
+//   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+//   datasets: [
+//     {
+//       label: 'Number of Leaves',
+//       data: Array(12).fill(0).map((_, monthIndex) => {
+//         const monthName = ('0' + (monthIndex + 1)).slice(-2); // Formatting month to 'MM' format
+//         return leaves.filter(leave => leave.startDate.includes(`-${monthName}-`)).length;
+//       }),
+//       fill: false,
+//       backgroundColor: 'blue',
+//       borderColor: '#2596BE',
+//     },
+//   ],
+// };
 
-  // const options = {
-  //   maintainAspectRatio: false,
-  //   scales: {
-  //     y: {
-  //       beginAtZero: true,
-  //       ticks: {
-  //         stepSize: 5,
-  //         precision: 0,
-  //       },
-  //       grid: {
-  //         color: '#e0e0e0',
-  //         lineWidth: 0.5,
-  //       },
-  //     },
-  //     x: {
-  //       grid: {
-  //         display: false,
-  //       },
-  //     },
-  //   },
-  // };
+// const options = {
+//   maintainAspectRatio: false,
+//   scales: {
+//     y: {
+//       beginAtZero: true,
+//       ticks: {
+//         stepSize: 5,
+//         precision: 0,
+//       },
+//       grid: {
+//         color: '#e0e0e0',
+//         lineWidth: 0.5,
+//       },
+//     },
+//     x: {
+//       grid: {
+//         display: false,
+//       },
+//     },
+//   },
+// };
 
 //   if (error) {
 //     return <div>Error: {error}</div>;
@@ -292,7 +292,7 @@
 //       </main>
 //       <div className="action-buttons">
 //         <button className="btn request-leave-btn" onClick={handleRequestLeave}>Leave Request</button>
-        
+
 //         <div>
 //           <h2>Check In</h2>
 //           <input
@@ -304,23 +304,23 @@
 //           {message && <p>{message}</p>}
 //         </div>
 
-      //   <div className="right-btn">
-      //     <button 
-      //       className={`btn check-in-btn ${isCheckedIn || hasCheckedOutToday || checkInRequestSent ? 'disabled' : ''}`} 
-      //       onClick={handleCheckIn} 
-      //       disabled={isCheckedIn || hasCheckedOutToday || checkInRequestSent}
-      //     >
-      //       Check In
-      //     </button>
-      //     <button 
-      //       className={`btn check-out-btn ${!isCheckedIn || hasCheckedOutToday ? 'disabled' : ''}`} 
-      //       onClick={handleCheckOut} 
-      //       disabled={!isCheckedIn || hasCheckedOutToday}
-      //     >
-      //       Check Out
-      //     </button>
-      //   </div>
-      // </div>
+//   <div className="right-btn">
+//     <button 
+//       className={`btn check-in-btn ${isCheckedIn || hasCheckedOutToday || checkInRequestSent ? 'disabled' : ''}`} 
+//       onClick={handleCheckIn} 
+//       disabled={isCheckedIn || hasCheckedOutToday || checkInRequestSent}
+//     >
+//       Check In
+//     </button>
+//     <button 
+//       className={`btn check-out-btn ${!isCheckedIn || hasCheckedOutToday ? 'disabled' : ''}`} 
+//       onClick={handleCheckOut} 
+//       disabled={!isCheckedIn || hasCheckedOutToday}
+//     >
+//       Check Out
+//     </button>
+//   </div>
+// </div>
 
 //       <div className="leave-summary">
 //         <div className="summary-item">
@@ -337,20 +337,20 @@
 //         </div>
 //       </div>  
 
-    //   <section className="leave-chart">
-    //     <h3>Leave Management</h3>
-    //     <div className="chart-container">
-    //       <Line data={leaveData} options={options} />
-    //     </div>
-    //   </section>
-    // </div>
+//   <section className="leave-chart">
+//     <h3>Leave Management</h3>
+//     <div className="chart-container">
+//       <Line data={leaveData} options={options} />
+//     </div>
+//   </section>
+// </div>
 //   );
 // };
 
 // export default EmployeeDashboard;
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import '../Css/EmployeeDashboard.css';
 import Navbar from './Navbar';
@@ -359,6 +359,8 @@ import 'react-calendar/dist/Calendar.css';
 import Modal from 'react-modal';
 import LeaveDetailsModal from './LeaveDetailsModal';
 import PresentDetailsModal from './PresentDetailsModal'; // Import new modal component
+import LeaveRequestModal from './LeaveRequestModal'; // Import LeaveRequestModal
+
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import profile from '../Image/jk.png';
@@ -386,7 +388,7 @@ ChartJS.register(
 Modal.setAppElement('#root');
 
 const EmployeeDashboard = ({ user }) => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [presentPercentage, setPresentPercentage] = useState(50);
@@ -405,6 +407,11 @@ const EmployeeDashboard = ({ user }) => {
   const [checkInRequestSent, setCheckInRequestSent] = useState(false);
   const [checkInTime, setCheckInTime] = useState('');
   const [checkOutTime, setCheckOutTime] = useState('');
+
+
+  //-----
+  const [isLeaveRequestModalOpen, setIsLeaveRequestModalOpen] = useState(false); // New state for LeaveRequestModal
+
 
   useEffect(() => {
     const fetchLeaves = async () => {
@@ -434,8 +441,8 @@ const EmployeeDashboard = ({ user }) => {
     fetchPresent();
   }, [user.id]);
 
-   // Navigate to ProfilePage
-   const goToProfile = () => {
+  // Navigate to ProfilePage
+  const goToProfile = () => {
     navigate('/profile');
   };
 
@@ -450,11 +457,14 @@ const EmployeeDashboard = ({ user }) => {
   const openLeaveModal = () => setIsLeaveModalOpen(true);
   const closeLeaveModal = () => setIsLeaveModalOpen(false);
 
+  const openLeaveRequestModal = () => setIsLeaveRequestModalOpen(true); // Open LeaveRequestModal
+  const closeLeaveRequestModal = () => setIsLeaveRequestModalOpen(false); // Close LeaveRequestModal
+
   const openPresentModal = () => {
     console.log('Present Modal Opened');
     setIsPresentModalOpen(true);
   };
-  
+
   const closePresentModal = () => {
     console.log('Present Modal Closed');
     setIsPresentModalOpen(false);
@@ -466,7 +476,7 @@ const EmployeeDashboard = ({ user }) => {
     setFilteredLeaves(leaves.filter(leave => leave.status === 'pending'));
     openLeaveModal();
   };
-  
+
   const showApprovedLeaves = () => {
     setSelectedStatus('approved');
     setFilteredLeaves(leaves.filter(leave => leave.status === 'approved'));
@@ -479,7 +489,7 @@ const EmployeeDashboard = ({ user }) => {
     openLeaveModal();
   };
 
-  const leaveDetails = filteredLeaves; 
+  const leaveDetails = filteredLeaves;
   const presentDetails = present; // Present details
 
   const leaveData = {
@@ -589,7 +599,7 @@ const EmployeeDashboard = ({ user }) => {
           </div>
         </div>
         <div className="profile-section" >
-          <div className="profile"  onClick={goToProfile}>
+          <div className="profile" onClick={goToProfile}>
             <img src={profile} alt="Amanda Kherr" className="profile-pic" />
             <div className="profile-info">
               <h2>Amanda Kherr</h2>
@@ -601,9 +611,9 @@ const EmployeeDashboard = ({ user }) => {
             </div>
           </div>
           <div className="stats">
-            <div className="stat"   onClick={openPresentModal}>
-              <CircularProgressbar 
-                value={presentPercentage} 
+            <div className="stat" onClick={openPresentModal}>
+              <CircularProgressbar
+                value={presentPercentage}
                 text={`${presentPercentage}%`}
                 styles={buildStyles({
                   pathColor: `#007bff`,
@@ -615,9 +625,9 @@ const EmployeeDashboard = ({ user }) => {
                 <p>Present</p>
               </div>
             </div>
-            <div className="stat" style={{width:'180px'}}  onClick={openLeaveModal}>
-              <CircularProgressbar 
-                value={leavePercentage} 
+            <div className="stat" style={{ width: '180px' }} onClick={openLeaveModal}>
+              <CircularProgressbar
+                value={leavePercentage}
                 text={`${leavePercentage}%`}
                 styles={buildStyles({
                   pathColor: `#007bff`,
@@ -633,8 +643,8 @@ const EmployeeDashboard = ({ user }) => {
         </div>
         <div className="leave-checkin-section">
           <div className="leave-request">
-            <h3>Leave Request</h3>
-            <p>Send Leave request</p>
+            <h3  onClick={openLeaveRequestModal}> Leave Request</h3>
+            <p  onClick={openLeaveRequestModal}>Send Leave request</p>
           </div>
           <div className="buttons">
             <button
@@ -697,6 +707,11 @@ const EmployeeDashboard = ({ user }) => {
         onRequestClose={closePresentModal}
         presentDetails={presentDetails}
       />
+      <LeaveRequestModal
+        isOpen={isLeaveRequestModalOpen}
+        onRequestClose={closeLeaveRequestModal}
+      /> {/* Add LeaveRequestModal */}
+
     </div>
   );
 };

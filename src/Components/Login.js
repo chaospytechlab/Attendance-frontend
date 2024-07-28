@@ -57,7 +57,8 @@ function Login({ setUser }) {
     e.preventDefault();
     if (validate()) {
       try {
-        const response = await axios.post(`http://192.168.1.3:8003/users/login`, null, {
+        const response = await axios.post(`http://127.0.0.1:8003/users/login`, null, {
+        // const response = await axios.post(`http://192.168.1.3:8003/users/login`, null, {
           params: {
             email: email,
             password: password

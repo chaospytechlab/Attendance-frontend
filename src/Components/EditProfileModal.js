@@ -94,7 +94,7 @@ const EditProfileModal = ({ isOpen, onClose }) => {
 
           await axios.put(`http://192.168.1.3:8003/users/edit_profile_image?user_id=${userId}`, imageData, {
             headers: {
-              'Content-Type': 'multipart/form-data' // Required for file uploads
+              'Content-Type': 'multipart/form-data'
             }
           });
           console.log('Profile image updated successfully');

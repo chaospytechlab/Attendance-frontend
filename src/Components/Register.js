@@ -53,7 +53,8 @@ function Register() {
     e.preventDefault();
     if (validate()) {
       try {
-        const response = await axios.post('http://192.168.1.3:8003/users', {
+        const response = await axios.post('http://127.0.0.1:8003/users', {
+        // const response = await axios.post('http://192.168.1.3:8003/users', {
           username,
           email,
           password
