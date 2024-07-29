@@ -590,3 +590,37 @@ main {
   position: relative;
   height: 200px; 
 }
+
+
+.holiday {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red; /* Red background for holidays */
+  width: 100%;
+  height: 20px; /* Adjust the height as needed */
+  border-radius: 4px;
+  color: white; /* Text color */
+  font-size: 12px; /* Adjust font size as needed */
+}
+
+.holiday-tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the element */
+  left: 50%;
+  margin-left: -60px;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+}
+
+.holiday:hover .holiday-tooltip {
+  visibility: visible;
+}

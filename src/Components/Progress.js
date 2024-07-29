@@ -202,6 +202,7 @@
 // };
 
 // export default Progress;
+
 import React, { useEffect, useState, useRef } from 'react';
 import Chart from 'chart.js/auto';
 import Arrow from '../Icon/p_arrow.svg';
@@ -311,4 +312,3 @@ const Progress = ({ user }) => {
 };
 
 export default Progress;
-
