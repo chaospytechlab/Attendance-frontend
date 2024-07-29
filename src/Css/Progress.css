@@ -174,10 +174,13 @@ canvas {
     width: 30px;
     height: 30px;
     cursor: pointer;
+    margin-top: -15px;
+    margin-left: 20px;
   }
   
   .progress-title-container {
-    margin-left: 20px;
+    margin-left: 50px;
+    margin-top: 30px;
   }
   
   .progress-title-container h2 {
@@ -190,7 +193,7 @@ canvas {
   
   .progress-container {
     position: relative;
-    margin: 20px;
+    margin: 30px;
   }
   
   .next-container {

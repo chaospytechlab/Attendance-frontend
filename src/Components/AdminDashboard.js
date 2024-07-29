@@ -362,6 +362,319 @@
 
 // export default AdminDashboard;
 
+// import React, { useState, useEffect } from 'react';
+// import { Bar } from 'react-chartjs-2';
+// import 'chart.js/auto';
+// import A_Navbar from './A_Navbar';
+// import '../Css/AdminDashboard.css';
+// import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css';
+
+// const AdminDashboard = ({ onLogout }) => {
+//   const [attendanceData, setAttendanceData] = useState([]);
+//   const [leavesData, setLeavesData] = useState([]);
+//   const [date, setDate] = useState(new Date());
+//   const [activeTab, setActiveTab] = useState('admin');
+//   const [showCalendar, setShowCalendar] = useState(false);
+
+//   useEffect(() => {
+//     // Fetch data from JSON Server
+//     fetch('http://localhost:3001/attendance')
+//       .then(response => response.json())
+//       .then(data => setAttendanceData(data));
+
+//     fetch('http://localhost:3001/leaves')
+//       .then(response => response.json())
+//       .then(data => setLeavesData(data));
+//   }, []);
+
+//   const toggleTab = (tab) => {
+//     setActiveTab(tab);
+//   };
+
+//   const handleDateClick = () => {
+//     setShowCalendar(!showCalendar);
+//   };
+
+//   const handleDateChange = (date) => {
+//     setDate(date);
+//     setShowCalendar(false);
+//   };
+
+//   // Chart data
+//   const chartData = {
+//     labels: ['24 July', 'Previous', 'Yesterday', 'Today'],
+//     datasets: [
+//       {
+//         label: 'No emp Present',
+//         data: [250, 270, 300, 300],
+//         backgroundColor: 'rgba(0, 123, 255, 0.5)',
+//       },
+//       {
+//         label: 'No emp Absent',
+//         data: [50, 50, 50, 50],
+//         backgroundColor: 'rgba(255, 99, 132, 0.5)',
+//       },
+//     ],
+//   };
+
+//   return (
+//     <div className="admin-dashboard">
+//       <A_Navbar onLogout={onLogout} />
+//       <div className="header">
+//         <h1>Attendance Admin</h1>
+//         <div className="calendar-container">
+//           <span>{date.toDateString()}</span>
+//           <button onClick={handleDateClick}>📅</button>
+//           {showCalendar && (
+//             <Calendar
+//               onChange={handleDateChange}
+//               value={date}
+//               className="calendar"
+//             />
+//           )}
+//         </div>
+//       </div>
+//       <div className="tabs">
+//         <button onClick={() => toggleTab('admin')}>Admin</button>
+//         <button onClick={() => toggleTab('personalize')}>Personalize</button>
+//       </div>
+//       {activeTab === 'admin' && (
+//         <div className="dashboard-content">
+//           <div className="employee-status">
+//             <div className="chart-container">
+//               <div className="section-title">Employee Status</div>
+//               <Bar data={chartData} />
+//             </div>
+//             <div className="leave-summary">
+//               <div className="section-title">Leave Summary</div>
+//               <div className="leave-summary-item">
+//                 <span>Pending Leave</span>
+//                 <span className="count">06</span>
+//               </div>
+//               <div className="leave-summary-item">
+//                 <span>Approved Leave</span>
+//                 <span className="count">06</span>
+//               </div>
+//               <div className="leave-summary-item">
+//                 <span>Rejected Leave</span>
+//                 <span className="count">01</span>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="new-leave-request">
+//             <h2>New Leave Request</h2>
+//             <table>
+//               <thead>
+//                 <tr>
+//                   <th>Employee id</th>
+//                   <th>Employee name</th>
+//                   <th>Start date</th>
+//                   <th>End date</th>
+//                   <th>Reason for Leave</th>
+//                   <th>Action</th>
+//                 </tr>
+//               </thead>
+//               <tbody>
+//                 {leavesData
+//                   .filter(leave => leave.status === 'pending')
+//                   .map((leave) => (
+//                     <tr key={leave.id}>
+//                       <td>{leave.employeeId}</td>
+//                       <td>{/* Fetch employee name by ID */}</td>
+//                       <td>{leave.startDate}</td>
+//                       <td>{leave.endDate}</td>
+//                       <td>{leave.reason}</td>
+//                       <td>
+//                         <button className="approve-btn">Approve</button>
+//                         <button className="reject-btn">Reject</button>
+//                       </td>
+//                     </tr>
+//                   ))}
+//               </tbody>
+//             </table>
+//             {/* Add pagination controls here */}
+//           </div>
+//         </div>
+//       )}
+//       {activeTab === 'personalize' && (
+//         <div className="personalize-content">
+//           {/* Personalize content can go here */}
+//           This is other tab content.
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default AdminDashboard;
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import { Bar } from 'react-chartjs-2';
+// import 'chart.js/auto';
+// import A_Navbar from './A_Navbar';
+// import '../Css/AdminDashboard.css';
+// import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css';
+// import { ReactComponent as AdminIcon } from '../Icon/a_tab.svg';
+// import { ReactComponent as PersonalizeIcon } from '../Icon/u_tab.svg';
+
+// import EmployeeDashboard from './EmployeeDashboard';
+
+// const AdminDashboard = ({ onLogout }) => {
+//   const [attendanceData, setAttendanceData] = useState([]);
+//   const [leavesData, setLeavesData] = useState([]);
+//   const [date, setDate] = useState(new Date());
+//   const [activeTab, setActiveTab] = useState('admin');
+//   const [showCalendar, setShowCalendar] = useState(false);
+
+//   useEffect(() => {
+//     // Fetch data from JSON Server
+//     fetch('http://localhost:3001/attendance')
+//       .then(response => response.json())
+//       .then(data => setAttendanceData(data));
+
+//     fetch('http://localhost:3001/leaves')
+//       .then(response => response.json())
+//       .then(data => setLeavesData(data));
+//   }, []);
+
+//   const toggleTab = (tab) => {
+//     setActiveTab(tab);
+//   };
+
+//   const handleDateClick = () => {
+//     setShowCalendar(!showCalendar);
+//   };
+
+//   const handleDateChange = (date) => {
+//     setDate(date);
+//     setShowCalendar(false);
+//   };
+
+//   // Chart data
+//   const chartData = {
+//     labels: ['24 July', 'Previous', 'Yesterday', 'Today'],
+//     datasets: [
+//       {
+//         label: 'No emp Present',
+//         data: [250, 270, 300, 300],
+//         backgroundColor: 'rgba(0, 123, 255, 0.5)',
+//       },
+//       {
+//         label: 'No emp Absent',
+//         data: [50, 50, 50, 50],
+//         backgroundColor: 'rgba(255, 99, 132, 0.5)',
+//       },
+//     ],
+//   };
+
+//   return (
+//     <div className="admin-dashboard">
+//       <A_Navbar onLogout={onLogout} />
+//       <div className="header">
+//         <h1>Attendance Admin</h1>
+//         <div className="calendar-container">
+//           <span>{date.toDateString()}</span>
+//           <button onClick={handleDateClick}>📅</button>
+//           {showCalendar && (
+//             <Calendar
+//               onChange={handleDateChange}
+//               value={date}
+//               className="calendar"
+//             />
+//           )}
+//         </div>
+//       </div>
+//       <div className="tabs">
+//         <button 
+//           className={activeTab === 'admin' ? 'active' : ''} 
+//           onClick={() => toggleTab('admin')}
+//         >
+//             <AdminIcon className="tab-icon" /> Admin
+//         </button>
+//         <button 
+//           className={activeTab === 'personalize' ? 'active' : ''} 
+//           onClick={() => toggleTab('personalize')}
+//         >
+//           <PersonalizeIcon className="tab-icon" /> Personalize
+//         </button>
+//       </div>
+//       {activeTab === 'admin' && (
+//         <div className="dashboard-content">
+//           <div className="employee-status">
+//             <div className="chart-container">
+//               <div className="section-title">Employee Status</div>
+//               <Bar data={chartData} />
+//             </div>
+//             <div className="leave-summary">
+//               <div className="section-title">Leave Summary</div>
+//               <div className="leave-summary-item">
+//                 <span>Pending Leave</span>
+//                 <span className="count">06</span>
+//               </div>
+//               <div className="leave-summary-item">
+//                 <span>Approved Leave</span>
+//                 <span className="count">06</span>
+//               </div>
+//               <div className="leave-summary-item">
+//                 <span>Rejected Leave</span>
+//                 <span className="count">01</span>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="new-leave-request">
+//             <h2>New Leave Request</h2>
+//             <table>
+//               <thead>
+//                 <tr>
+//                   <th>Employee id</th>
+//                   <th>Employee name</th>
+//                   <th>Start date</th>
+//                   <th>End date</th>
+//                   <th>Reason for Leave</th>
+//                   <th>Action</th>
+//                 </tr>
+//               </thead>
+//               <tbody>
+//                 {leavesData
+//                   .filter(leave => leave.status === 'pending')
+//                   .map((leave) => (
+//                     <tr key={leave.id}>
+//                       <td>{leave.employeeId}</td>
+//                       <td>{/* Fetch employee name by ID */}</td>
+//                       <td>{leave.startDate}</td>
+//                       <td>{leave.endDate}</td>
+//                       <td>{leave.reason}</td>
+//                       <td>
+//                         <button className="approve-btn">Approve</button>
+//                         <button className="reject-btn">Reject</button>
+//                       </td>
+//                     </tr>
+//                   ))}
+//               </tbody>
+//             </table>
+//             {/* Add pagination controls here */}
+//           </div>
+//         </div>
+//       )}
+//       {activeTab === 'personalize' && (
+//         <div className="personalize-content">
+//           {/* Personalize content can go here */}
+//           This is other tab content.
+//           {/* <EmployeeDashboard /> */}
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default AdminDashboard;
+
+
 import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
@@ -369,6 +682,10 @@ import A_Navbar from './A_Navbar';
 import '../Css/AdminDashboard.css';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { ReactComponent as AdminIcon } from '../Icon/a_tab.svg';
+import { ReactComponent as PersonalizeIcon } from '../Icon/u_tab.svg';
+
+import EmployeeDashboard from './EmployeeDashboard';
 
 const AdminDashboard = ({ onLogout }) => {
   const [attendanceData, setAttendanceData] = useState([]);
@@ -436,8 +753,18 @@ const AdminDashboard = ({ onLogout }) => {
         </div>
       </div>
       <div className="tabs">
-        <button onClick={() => toggleTab('admin')}>Admin</button>
-        <button onClick={() => toggleTab('personalize')}>Personalize</button>
+        <button 
+          className={activeTab === 'admin' ? 'active' : ''} 
+          onClick={() => toggleTab('admin')}
+        >
+          <AdminIcon className="tab-icon" style={{ fill: activeTab === 'admin' ? 'white' : 'black' }} /> Admin
+        </button>
+        <button 
+          className={activeTab === 'personalize' ? 'active' : ''} 
+          onClick={() => toggleTab('personalize')}
+        >
+          <PersonalizeIcon className="tab-icon" style={{ fill: activeTab === 'personalize' ? 'white' : 'black' }} /> Personalize
+        </button>
       </div>
       {activeTab === 'admin' && (
         <div className="dashboard-content">
@@ -501,6 +828,8 @@ const AdminDashboard = ({ onLogout }) => {
         <div className="personalize-content">
           {/* Personalize content can go here */}
           This is other tab content.
+           <EmployeeDashboard />
+
         </div>
       )}
     </div>

@@ -189,7 +189,7 @@ h2 {
   top: 35px;
   right: 0;
 }
-
+/* 
 .tabs {
   display: flex;
   justify-content: center;
@@ -205,7 +205,56 @@ h2 {
   margin: 0 10px;
   cursor: pointer;
   border-radius: 5px;
+} */
+
+ /* AdminDashboard.css */
+
+
+/* AdminDashboard.css */
+/* AdminDashboard.css */
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
 }
+
+.tabs button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: black;
+  border: 1px solid #dee2e6;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  width: 50%;
+}
+
+.tabs button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.tabs button img {
+  margin-right: 20px;
+}
+
+.tabs button svg {
+  margin-right: 8px;
+  fill: currentColor;
+  transition: fill 0.3s;
+}
+
+.tabs button.active svg {
+  fill: currentColor;
+}
+
 
 .dashboard-content {
   display: flex;
