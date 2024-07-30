@@ -18,6 +18,8 @@ import ViewAllAttendance from './Components/ViewAllAttendance';
 import Employees from './Components/Employees';
 import ViewAllLeaves from './Components/ViewAllLeaves';
 import Progress from './Components/Progress';
+import TabbedPage from './Components/TabbedPage'; // Import your TabbedPage component
+
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -56,6 +58,7 @@ function App() {
         ) : (
           <Routes>
             <Route path="/" element={<Landing />} />
+            <Route path="/tab" element={<TabbedPage />} />
             <Route
               path="/dashboard"
               element={user.role === 'admin' ? <AdminDashboard onLogout={handleLogout} /> : <EmployeeDashboard user={user} onLogout={handleLogout} />}
@@ -75,6 +78,7 @@ function App() {
           </Routes>
         )}
       </div>
+
     </Router>
   );
 }

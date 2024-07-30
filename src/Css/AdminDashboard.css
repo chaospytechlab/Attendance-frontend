@@ -218,6 +218,7 @@ h2 {
   justify-content: center;
   padding: 10px;
   border-bottom: 1px solid #dee2e6;
+  margin-bottom: 50px;
 }
 
 .tabs button {
@@ -228,9 +229,9 @@ h2 {
   color: black;
   border: 1px solid #dee2e6;
   padding: 10px 20px;
-  margin: 0 10px;
+  /* margin: 0 10px; */
   cursor: pointer;
-  border-radius: 20px;
+  /* border-radius: 10px; */
   font-size: 20px;
   transition: background-color 0.3s, color 0.3s;
   width: 50%;
@@ -261,6 +262,7 @@ h2 {
   flex-direction: column;
   gap: 20px;
   margin-top: 20px;
+  margin-left: 10px;
 }
 
 .section-title {
@@ -276,7 +278,7 @@ h2 {
 }
 
 .chart-container {
-  flex: 1;
+  flex:3 1;
   height: 400px;
 }
 
@@ -285,7 +287,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-left: 200px;
+  /* margin-left: 200px; */
 }
 
 .leave-summary-item {

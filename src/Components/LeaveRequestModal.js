@@ -200,12 +200,14 @@ const LeaveRequestModal = ({ isOpen, onRequestClose }) => {
 
             if (response.ok) {
                 console.log('Leave request submitted successfully');
+                alert('Leave request submitted successfully');
                 onRequestClose(); // Close modal after successful submission
             } else {
                 console.error('Failed to submit leave request');
             }
         } catch (error) {
             console.error('An error occurred while submitting the leave request:', error);
+            alert('An error occurred while submitting the leave request');
         }
     };
 
