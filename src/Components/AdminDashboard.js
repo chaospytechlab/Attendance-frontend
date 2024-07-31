@@ -975,6 +975,9 @@ const AdminDashboard = ({ onLogout }) => {
   const [showCalendar, setShowCalendar] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showAbsentModal, setShowAbsentModal] = useState(false);
+
+  const [showTodayStatusModal, setShowTodayStatusModal] = useState(false);
+
   const [presentData, setPresentData] = useState([]);
   const [absentData, setAbsentData] = useState([]);
   const chartRef = useRef(null);
@@ -983,6 +986,12 @@ const AdminDashboard = ({ onLogout }) => {
   const handleAbsentModalClose = () => setShowAbsentModal(false);
 
   const [employeeData, setEmployeeData] = useState([]);
+
+
+// Define your state and data fetching functions for the third modal
+const [showPresentStatusModal, setShowPresentStatusModal] = useState(true);
+const [presentStatusData, setPresentStatusData] = useState([]);
+
   const [modalTitle, setModalTitle] = useState('');
   useEffect(() => {
     // Fetch data from JSON Server
@@ -1008,117 +1017,6 @@ const AdminDashboard = ({ onLogout }) => {
     setShowCalendar(false);
   };
 
-  // const chartData = {
-  //   labels: ['24 July', 'Previous', 'Yesterday', 'Today'],
-  //   datasets: [
-  //     {
-  //       label: 'No emp Present',
-  //       data: [250, 270, 300, 300],
-  //       backgroundColor: 'rgba(0, 123, 255, 0.5)',
-  //       barThickness: 30,
-  //       hoverBorderColor: '#007bff',
-  //     },
-  //     {
-  //       label: 'No emp Absent',
-  //       data: [50, 50, 50, 50],
-  //       backgroundColor: 'rgba(255, 99, 132, 0.5)',
-  //       barThickness: 30,
-  //       hoverBorderColor: '#007bff',
-  //     },
-  //   ],
-  // };
-
-  // const chartOptions = {
-  //   responsive: true,
-  //   maintainAspectRatio: false,
-  //   onClick: (event, elements) => {
-  //     if (elements.length > 0) {
-  //       const datasetIndex = elements[0].datasetIndex;
-  //       const index = elements[0].index;
-  //       const datasetLabel = chartData.datasets[datasetIndex].label;
-
-  //       if (datasetLabel === 'No emp Present') {
-  //         fetchPresentData();
-  //         setShowModal(true);
-  //       } else if (datasetLabel === 'No emp Absent') {
-  //         fetchAbsentData();
-  //         setShowAbsentModal(true);
-  //       }
-  //     }
-  //   },
-  //   scales: {
-  //     x: {
-  //       barThickness: 10, // Adjust this value to decrease column width
-  //     },
-  //   },
-  // };
-
-  // const chartContainerStyle = {
-  //   width: '90%', // Adjust this value to increase chart width
-  //   height: '400px', // Adjust this value to set chart height
-  // };
-
-  // // Simulate fetching data from a JSON file
-  // const fetchPresentData = () => {
-  //   // Here you should fetch the data from your JSON file
-  //   // For demonstration, using hardcoded data
-  //   const data = [
-  //     {
-  //       id: '15f9',
-  //       employeeId: '1ba6',
-  //       username: 'vv',
-  //       role: 'employee',
-  //       date: '2024-07-04',
-  //       status: 'present',
-  //       checkInTime: '8:00 AM',
-  //       checkOutTime: '5:00 PM',
-  //     },
-  //     {
-  //       id: '02ca',
-  //       employeeId: 'ec3c',
-  //       username: 'suga',
-  //       role: 'employee',
-  //       date: '2024-07-07',
-  //       status: 'present',
-  //       checkInTime: '9:00 AM',
-  //       checkOutTime: '6:00 PM',
-  //     },
-  //   ];
-  //   setPresentData(data);
-  // };
-
-  // const fetchAbsentData = () => {
-  //   // Here you should fetch the data from your JSON file
-  //   // For demonstration, using hardcoded data
-  //   const data = [
-  //     {
-  //       id: '15f9',
-  //       employeeId: '1ba6',
-  //       username: 'vv',
-  //       role: 'employee',
-  //       date: '2024-07-04',
-  //       status: 'absent',
-  //       role: 'Product Manager',
-  //       startDate: '2024-07-02',
-  //       endDate: '2024-07-05',
-  //       reason: 'Personal Leave',
-  //     },
-  //     {
-  //       id: '02ca',
-  //       employeeId: 'ec3c',
-  //       username: 'suga',
-  //       role: 'employee',
-  //       date: '2024-07-07',
-  //       status: 'absent',
-  //       role: 'Product Manager',
-  //       startDate: '2024-07-02',
-  //       endDate: '2024-07-05',
-  //       reason: 'Personal Leave',
-  //     },
-  //   ];
-  //   setAbsentData(data);
-  // };
-
   const chartData = {
     labels: ['24 July', 'Previous', 'Yesterday', 'Today'],
     datasets: [
@@ -1137,73 +1035,155 @@ const AdminDashboard = ({ onLogout }) => {
         hoverBorderColor: '#007bff',
       },
     ],
-  };
-const presentEmployees = [
-  { id: '1', name: 'Alice Johnson', role: 'Developer', status: 'Present' },
-  { id: '2', name: 'Bob Smith', role: 'Designer', status: 'Present' },
-  // more present employees...
-];
-
-const absentEmployees = [
-  { id: '3', name: 'Carol White', role: 'Manager', status: 'Absent' },
-  { id: '4', name: 'Dave Brown', role: 'Developer', status: 'Absent' },
-  // more absent employees...
-];
-
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
- 
-          onClick: (event, elements) => {
-            if (elements.length > 0) {
-              const datasetIndex = elements[0].datasetIndex;
-              const index = elements[0].index;
-              const datasetLabel = chartData.datasets[datasetIndex].label;
-              const clickedLabel = chartData.labels[index];
-        
-              if (clickedLabel === 'Today') {
-                if (datasetLabel === 'No emp Present') {
-                  setEmployeeData(presentEmployees);
-                  setModalTitle('Today Status - Present Employees');
-                } else if (datasetLabel === 'No emp Absent') {
-                  setEmployeeData(absentEmployees);
-                  setModalTitle('Today Status - Absent Employees');
-                }
-                setShowModal(true);
-              }
-            }
-          },
     
-    scales: {
-      x: {
-        barThickness: 10, // Adjust this value to decrease column width
-      },
-    },
   };
+
+  useEffect(() => {
+    console.log('showTodayStatusModal updated:', showTodayStatusModal);
+  }, [showTodayStatusModal]);
+  
+
+const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  onClick: (event, elements) => {
+    console.log('Click event detected');
+    console.log('Elements:', elements);
+
+    if (elements.length > 0) {
+      const datasetIndex = elements[0].datasetIndex;
+      const index = elements[0].index;
+      console.log('Clicked label:', chartData.labels[index]); // Verify the label
+      const datasetLabel = chartData.datasets[datasetIndex].label;
+
+      if (chartData.labels === 'Today') {
+        console.log('Today label clicked');
+        alert("This si todays satuus pop up displyed"); // Debugging log
+        fetchTodayStatus();
+        setShowTodayStatusModal(true);
+      }else if (datasetLabel === 'No emp Present') {
+        alert("This si todays satuus pop up displyed"); // Debugging log
+
+        fetchPresentData();
+        setShowModal(true);
+      } else if (datasetLabel === 'No emp Absent') {
+        fetchAbsentData();
+        setShowAbsentModal(true);
+      }
+    } 
+  },
+  scales: {
+    x: {
+      barThickness: 10,
+    },
+  },
+  interaction: {
+    mode: 'nearest', // Determines which element is 'nearest' to the event position
+    axis: 'x', // 'x', 'y', or 'xy' - determines which axis to use for the interaction
+    intersect: true, // Ensures that the interaction only happens when the point intersects with an element
+  },
+};
+
+
+
+  
+  
+  // Example fetch functions and modal state handlers
+  const fetchTodayStatus = () => {
+    // Fetch today's status details
+    const data = [
+      {
+              id: '15f9',
+              employeeId: '1ba6',
+              username: 'vv',
+              role: 'employee',
+              date: '2024-07-04',
+              status: 'present',
+              checkInTime: '8:00 AM',
+              checkOutTime: '5:00 PM',
+            },
+            {
+              id: '02ca',
+              employeeId: 'ec3c',
+              username: 'suga',
+              role: 'employee',
+              date: '2024-07-07',
+              status: 'present',
+              checkInTime: '9:00 AM',
+              checkOutTime: '6:00 PM',
+            },
+    ];
+    setShowTodayStatusModal(data);
+  };
+
   const chartContainerStyle = {
     width: '90%', // Adjust this value to increase chart width
     height: '400px', // Adjust this value to set chart height
   };
 
+  // Simulate fetching data from a JSON file
   const fetchPresentData = () => {
-    // Fetch the data for present employees
+    // Here you should fetch the data from your JSON file
+    // For demonstration, using hardcoded data
     const data = [
-      { id: '11021', name: 'Abay Varma', designation: 'Developer', status: 'Present' },
-      { id: '11022', name: 'Amanda Kherr', designation: 'Developer', status: 'Present' },
-      // Add more data as needed
+      {
+        id: '15f9',
+        employeeId: '1ba6',
+        username: 'vv',
+        role: 'employee',
+        date: '2024-07-04',
+        status: 'present',
+        checkInTime: '8:00 AM',
+        checkOutTime: '5:00 PM',
+      },
+      {
+        id: '02ca',
+        employeeId: 'ec3c',
+        username: 'suga',
+        role: 'employee',
+        date: '2024-07-07',
+        status: 'present',
+        checkInTime: '9:00 AM',
+        checkOutTime: '6:00 PM',
+      },
     ];
-    setEmployeeData(data);
+    setPresentData(data);
+    console.log("Fetching today's status details");
   };
 
   const fetchAbsentData = () => {
-    // Fetch the data for absent employees
+    // Here you should fetch the data from your JSON file
+    // For demonstration, using hardcoded data
     const data = [
-      { id: '11023', name: 'Arman Ali', designation: 'Designer', status: 'Absent' },
-      { id: '11024', name: 'Beak youn woo', designation: 'Designer', status: 'Absent' },
-      // Add more data as needed
+      {
+        id: '15f9',
+        employeeId: '1ba6',
+        username: 'vv',
+        role: 'employee',
+        date: '2024-07-04',
+        status: 'absent',
+        role: 'Product Manager',
+        startDate: '2024-07-02',
+        endDate: '2024-07-05',
+        reason: 'Personal Leave',
+      },
+      {
+        id: '02ca',
+        employeeId: 'ec3c',
+        username: 'suga',
+        role: 'employee',
+        date: '2024-07-07',
+        status: 'absent',
+        role: 'Product Manager',
+        startDate: '2024-07-02',
+        endDate: '2024-07-05',
+        reason: 'Personal Leave',
+      },
     ];
-    setEmployeeData(data);
+    setAbsentData(data);
   };
+
+
 
   return (
     <div className="admin-dashboard">
@@ -1244,11 +1224,12 @@ const absentEmployees = [
               <Bar data={chartData} style={chartContainerStyle} options={chartOptions} />
               <Modal show={showModal} handleClose={handleModalClose} data={presentData} />        
               <AbsentModal show={showAbsentModal} handleClose={handleAbsentModalClose} data={absentData} />        
+              {/* <PresentStatusModal show={showTodayStatusModal} handleClose={() => setShowPresentStatusModal(false)} data={presentStatusData} /> */}
               <PresentStatusModal
-        show={showModal}
-        handleClose={() => setShowModal(false)}
-        data={employeeData}
-        title={modalTitle}
+        show={showTodayStatusModal}
+        handleClose={() => setShowTodayStatusModal(false)}
+        data={presentStatusData}
+        title="Today's Employee Status"
       />
             </div>
             <div className="leave-summary">
@@ -1300,6 +1281,11 @@ const absentEmployees = [
             </table>
             {/* Add pagination controls here */}
           </div>
+          <PresentStatusModal
+  handleClose={handleModalClose}
+  data={presentData} // Data for present employees
+  title={modalTitle}
+/>
         </div>
       )}
       {activeTab === 'personalize' && (

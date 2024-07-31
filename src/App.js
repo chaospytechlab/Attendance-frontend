@@ -19,7 +19,7 @@ import Employees from './Components/Employees';
 import ViewAllLeaves from './Components/ViewAllLeaves';
 import Progress from './Components/Progress';
 import TabbedPage from './Components/TabbedPage'; // Import your TabbedPage component
-
+import A_History from './Components/A_History';
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -75,6 +75,7 @@ function App() {
             <Route path="/admin/manage-leaves" element={<ApproveRejectLeave />} />
             <Route path="/admin/employees" element={<Employees />} />
             <Route path="/admin/view-all-leaves" element={<ViewAllLeaves />} /> 
+            <Route path="/admin/history" element={<A_History user={user} />} />
           </Routes>
         )}
       </div>
