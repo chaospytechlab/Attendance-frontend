@@ -46,7 +46,7 @@
 // export default Modal;
 
 
-
+// present-model-
 
 import React from 'react';
 import jsPDF from 'jspdf';
@@ -82,9 +82,9 @@ const Modal = ({ show, handleClose, data }) => {
 
   return (
     <>
-      <div className={`modal-overlay ${show ? 'show' : ''}`} onClick={handleClose}></div>
-      <div className={`modal-content ${show ? 'show' : ''}`}>
-        <div className="modal-header">
+      <div className={`present-model-modal-overlay ${show ? 'show' : ''}`} onClick={handleClose}></div>
+      <div className={`present-model-modal-content ${show ? 'show' : ''}`}>
+        <div className="present-model-modal-header">
           <h2>Today Present</h2>
           <input type="text" placeholder="Search employee.." />
         </div>
@@ -105,7 +105,7 @@ const Modal = ({ show, handleClose, data }) => {
                 <td>
                   <img src={profile} alt="Profile" />
                 </td>
-                <td className="employee-name">
+                <td className="present-model-employee-name">
                   {item.username}
                 </td>
                 <td>{item.role}</td>

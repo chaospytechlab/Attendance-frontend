@@ -1,4 +1,4 @@
-.modal-overlay {
+.present-model-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,11 +9,11 @@
   z-index: 999;
 }
 
-.modal-overlay.show {
+.present-model-modal-overlay.show {
   display: block;
 }
 
-.modal-content {
+.present-model-modal-content {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -27,17 +27,17 @@
   display: none;
 }
 
-.modal-content.show {
+.present-model-modal-content.show {
   display: block;
 }
 
-.modal-header {
+.present-model-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.modal-content h2 {
+.present-model-modal-content h2 {
   margin-top: 0;
   font-size: 24px;
   text-align: center;
@@ -46,7 +46,7 @@
   margin-top: -12px;
 }
 
-input[type="text"] {
+.present-model-modal-content input[type="text"] {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 50px;
@@ -56,13 +56,13 @@ input[type="text"] {
   padding-left: 30px;
 }
 
-table {
+.present-model-modal-content table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-thead th {
+.present-model-modal-content thead th {
   background-color: #e0f0ff;
   color: #333;
   padding: 10px;
@@ -70,38 +70,38 @@ thead th {
   border-bottom: 2px solid #ddd;
 }
 
-tbody tr {
+.present-model-modal-content tbody tr {
   border-bottom: 1px solid #ddd;
 }
 
-tbody tr:last-child {
+.present-model-modal-content tbody tr:last-child {
   border-bottom: none;
 }
 
-tbody tr:hover {
+.present-model-modal-content tbody tr:hover {
   background-color: #f1f1f1;
 }
 
-th, td {
+.present-model-modal-content th, td {
   padding: 10px;
   text-align: left;
   vertical-align: middle;
 }
 
-td img {
+.present-model-modal-content td img {
   border-radius: 50%;
   width: 40px;
   height: 40px;
   margin-right: 10px;
 }
 
-.employee-name {
+.present-model-modal-content .employee-name {
   display: flex;
   align-items: center;
   border: none; 
 }
 
-td, th {
+.present-model-modal-content td, th {
   font-size: 14px;
   border-right: none;
   border-left: none;
@@ -111,7 +111,7 @@ td, th {
 
 
 
-.download-btn {
+.present-model-modal-content .download-btn {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -125,6 +125,6 @@ td, th {
   border-radius: 4px;
 }
 
-.download-btn:hover {
+.present-model-modal-content .download-btn:hover {
   background-color: #45a049;
 }

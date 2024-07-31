@@ -96,9 +96,9 @@ const PresentStatusModal = ({ show, handleClose, data }) => {
 
   return (
     <>
-      <div className={`modal-overlay ${show ? 'show' : ''}`} onClick={handleClose}></div>
-      <div className={`modal-content ${show ? 'show' : ''}`}>
-        <div className="modal-header">
+      <div className={`present-model-modal-overlay ${show ? 'show' : ''}`} onClick={handleClose}></div>
+      <div className={`present-model-modal-content ${show ? 'show' : ''}`}>
+        <div className="present-model-modal-header">
           <h2>This is Third Model For Today Lable</h2>
           <input type="text" placeholder="Search employee.." />
         <button onClick={handleDownloadPDF} className="download-btn">Download PDF</button>
@@ -119,7 +119,7 @@ const PresentStatusModal = ({ show, handleClose, data }) => {
                 <td>
                   <img src={profile} alt="Profile" />
                 </td>
-                <td className="employee-name">
+                <td className="present-model--name">
                   {item.username}
                 </td>
                 <td>{item.role}</td>
