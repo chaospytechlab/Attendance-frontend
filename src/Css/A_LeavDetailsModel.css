@@ -6,7 +6,7 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    max-width: 900px;
+    max-width: 700px;
     background: white;
     border-radius: 10px;
     overflow: hidden;
@@ -34,7 +34,7 @@
 }
 
 .A_LeavDetailsModel-leave-details-table th {
-    background-color: #2596BE;
+    background-color: #e0f0ff;
 }
 
 .A_LeavDetailsModel-reject-btn {
@@ -44,7 +44,8 @@
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
-    margin-right: 5px;
+    margin-right: 15px;
+    width: 45%;
 }
 
 .A_LeavDetailsModel-approve-btn {
@@ -54,11 +55,12 @@
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
+    width: 45%;
 }
 
 .pagination {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 20px;
     list-style: none;
     padding: 0;

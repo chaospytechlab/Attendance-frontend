@@ -1,0 +1,175 @@
+/* .A_Report-container {
+    padding: 20px;
+}
+
+.A_Report-content {
+    margin: 20px 50px;
+}
+
+.A_Report-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.A_Report-header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.A_Report-header-info h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.A_Report-header-info p {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.A_Report-header select {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.A_Report-section {
+    margin-bottom: 40px;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+    padding: 20px 50px;
+}
+
+.A_Report-section-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.A_Report-employee-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.A_Report-employee-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.A_Report-employee-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.A_Report-employee-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.A_Report-employee-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.A_Report-employee-info p {
+    margin: 0;
+    color: #777;
+}
+
+.A_Report-employee-count {
+    font-size: 14px;
+    color: #777;
+} */
+
+
+.A_Report-container {
+    padding: 20px;
+}
+
+.A_Report-content {
+    margin: 20px 50px;
+}
+
+.A_Report-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.A_Report-header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.A_Report-header-info h1 {
+    font-size: 24px;
+    margin: 0;
+    /* margin-bottom: 10px; */
+}
+
+.A_Report-header-info p {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.A_Report-header select {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.A_Report-section {
+    margin-bottom: 40px;
+    /* border: 1px solid #007bff; */
+    box-shadow: 0 0 10px 0 #b1d5e6;
+    border-radius: 20px;
+    padding: 20px 50px;
+}
+
+.A_Report-section-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.A_Report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+.A_Report-table td {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: left;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    background: white;
+}
+
+.A_Report-table th {
+    background-color: #f2f2f2;
+}
+
+.A_Report-employee-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.A_Report-employee-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.A_Report-employee-count {
+    font-size: 14px;
+    color: #777;
+}

@@ -272,6 +272,23 @@ h2 {
   color: #333;
 }
 
+.section-title-chart {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-title-chart h2{
+  margin-left: 30px;
+}
+.section-title-chart h3{
+  margin-right: 100px;
+}
+
 .employee-status {
   display: flex;
   gap: 20px;
@@ -316,7 +333,7 @@ h2 {
 }
 
 .new-leave-request {
-  margin-top: 20px;
+  margin-top: 70px;
 }
 
 .new-leave-request table {
@@ -324,20 +341,26 @@ h2 {
   border-collapse: collapse;
 }
 
-.new-leave-request th,
+.new-leave-request th{
+  background-color: #e0f0ff;
+  height: 30px;
+}
 .new-leave-request td {
   border: 1px solid #dee2e6;
   padding: 8px;
   text-align: left;
+  border-right: none;
+  border-left: none;
 }
 
 .approve-btn,
 .reject-btn {
-  margin-right: 5px;
-  padding: 5px 10px;
+  margin-right: 15px;
+  padding:  10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 45%;
 }
 
 .approve-btn {

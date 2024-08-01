@@ -1,0 +1,29 @@
+<svg width="50" height="50" viewBox="0 0 75 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_815_1270)">
+<g filter="url(#filter0_dd_815_1270)">
+<rect x="72.6836" y="71.2699" width="68" height="68" rx="34" transform="rotate(178.799 72.6836 71.2699)" fill="white"/>
+</g>
+<path d="M27.2592 37.5071C26.8769 37.9058 26.8902 38.5388 27.2888 38.921L33.7847 45.1503C34.1833 45.5325 34.8164 45.5193 35.1986 45.1206C35.5809 44.722 35.5676 44.089 35.169 43.7067L29.3949 38.1696L34.9319 32.3955C35.3142 31.9969 35.3009 31.3639 34.9023 30.9816C34.5037 30.5993 33.8707 30.6126 33.4884 31.0112L27.2592 37.5071ZM47.9556 36.7804L27.96 37.1995L28.0019 39.1991L47.9975 38.78L47.9556 36.7804Z" fill="#2596BE"/>
+</g>
+<defs>
+<filter id="filter0_dd_815_1270" x="-4.02148" y="-4.01041" width="84" height="84.0003" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-4" dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.145098 0 0 0 0 0.588235 0 0 0 0 0.745098 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_815_1270"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="4" dy="-4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.145098 0 0 0 0 0.588235 0 0 0 0 0.745098 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_815_1270" result="effect2_dropShadow_815_1270"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_815_1270" result="shape"/>
+</filter>
+<clipPath id="clip0_815_1270">
+<rect width="73" height="76" fill="white" transform="translate(74.7881 76.2269) rotate(178.799)"/>
+</clipPath>
+</defs>
+</svg>

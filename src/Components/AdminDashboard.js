@@ -965,7 +965,7 @@ import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 
-const AdminDashboard = ({ onLogout }) => {
+const AdminDashboard = ({ onLogout, initialLeaves  }) => {
   const [attendanceData, setAttendanceData] = useState([]);
   const [leavesData, setLeavesData] = useState([]);
   const [date, setDate] = useState(new Date());
@@ -981,7 +981,7 @@ const AdminDashboard = ({ onLogout }) => {
   const chartRef = useRef(null);
   const [isLeaveModalOpen, setIsLeaveModalOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState(''); // Track selected status
-
+  const [attendance, setAttendance] = useState([]);
   const handleModalClose = () => setShowModal(false);
   const handleAbsentModalClose = () => setShowAbsentModal(false);
 
@@ -994,6 +994,7 @@ const [presentStatusData, setPresentStatusData] = useState([]);
 const [error, setError] = useState(null);
 const [filteredLeaves, setFilteredLeaves] = useState([]);
 const [leaves, setLeaves] = useState([]);
+const [users, setUsers] = useState([]);
 
   const [modalTitle, setModalTitle] = useState('');
   useEffect(() => {
@@ -1020,7 +1021,50 @@ const [leaves, setLeaves] = useState([]);
 
     fetchLeaves();
   }, []);
- 
+  useEffect(() => {
+    const fetchAttendance = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/attendance');
+        const data = await response.json();
+        setAttendance(data.attendance || []);
+        setUsers(data.users || []);
+      } catch (error) {
+        console.error('Error fetching attendance data:', error);
+      }
+    };
+
+    fetchAttendance();
+  }, []);
+
+  const handleShowTodayStatus = () => {
+    console.log("Attendance data:", attendance); // Debug log
+    if (!attendance || attendance.length === 0) {
+      console.warn('Attendance data is not available.');
+      return;
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const presentEmployees = attendance
+      .filter(record => record.date === today && record.status === 'present')
+      .map(record => {
+        const user = users.find(user => user.id === record.employeeId);
+        return {
+          ...record,
+          username: user?.username || 'Unknown',
+          role: user?.role || 'Unknown',
+        };
+      });
+
+    console.log("Present employees:", presentEmployees); // Debug log
+    setPresentStatusData(presentEmployees);
+    setShowTodayStatusModal(true);
+  };
+
+  const handleTodayModalClose = () => {
+    setShowTodayStatusModal(false);
+  };
+
+
   const toggleTab = (tab) => {
     setActiveTab(tab);
   };
@@ -1091,17 +1135,10 @@ const chartOptions = {
     if (elements.length > 0) {
       const datasetIndex = elements[0].datasetIndex;
       const index = elements[0].index;
-      console.log('Clicked label:', chartData.labels[index]); // Verify the label
+      // console.log('Clicked label:', chartData.labels[index]); // Verify the label
       const datasetLabel = chartData.datasets[datasetIndex].label;
 
-      if (chartData.labels === 'Today') {
-        console.log('Today label clicked');
-        alert("This si todays satuus pop up displyed"); // Debugging log
-        fetchTodayStatus();
-        setShowTodayStatusModal(true);
-      }else if (datasetLabel === 'No emp Present') {
-        alert("This si todays satuus pop up displyed"); // Debugging log
-
+     if (datasetLabel === 'No emp Present') {
         fetchPresentData();
         setShowModal(true);
       } else if (datasetLabel === 'No emp Absent') {
@@ -1121,38 +1158,6 @@ const chartOptions = {
     intersect: true, // Ensures that the interaction only happens when the point intersects with an element
   },
 };
-
-
-
-  
-  
-  // Example fetch functions and modal state handlers
-  const fetchTodayStatus = () => {
-    // Fetch today's status details
-    const data = [
-      {
-              id: '15f9',
-              employeeId: '1ba6',
-              username: 'vv',
-              role: 'employee',
-              date: '2024-07-04',
-              status: 'present',
-              checkInTime: '8:00 AM',
-              checkOutTime: '5:00 PM',
-            },
-            {
-              id: '02ca',
-              employeeId: 'ec3c',
-              username: 'suga',
-              role: 'employee',
-              date: '2024-07-07',
-              status: 'present',
-              checkInTime: '9:00 AM',
-              checkOutTime: '6:00 PM',
-            },
-    ];
-    setShowTodayStatusModal(data);
-  };
 
   const chartContainerStyle = {
     width: '90%', // Adjust this value to increase chart width
@@ -1258,14 +1263,16 @@ const chartOptions = {
         <div className="dashboard-content">
           <div className="employee-status">
             <div className="chart-container">
-              <div className="section-title">Employee Status</div>
+              <div className="section-title-chart">
+              <h2>Employee Status</h2>
+              <h3  onClick={handleShowTodayStatus}>Today Status</h3>
+              </div>
               <Bar data={chartData} style={chartContainerStyle} options={chartOptions} />
               <Modal show={showModal} handleClose={handleModalClose} data={presentData} />        
               <AbsentModal show={showAbsentModal} handleClose={handleAbsentModalClose} data={absentData} />        
-              {/* <PresentStatusModal show={showTodayStatusModal} handleClose={() => setShowPresentStatusModal(false)} data={presentStatusData} /> */}
               <PresentStatusModal
         show={showTodayStatusModal}
-        handleClose={() => setShowTodayStatusModal(false)}
+        handleClose={handleTodayModalClose}
         data={presentStatusData}
         title="Today's Employee Status"
       />
@@ -1328,6 +1335,7 @@ const chartOptions = {
         isOpen={isLeaveModalOpen}
         onRequestClose={closeLeaveModal}
         leaveDetails={leaveDetails}
+        selectedStatus={selectedStatus}
       />
           <PresentStatusModal
   handleClose={handleModalClose}
