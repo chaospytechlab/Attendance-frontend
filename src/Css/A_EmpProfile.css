@@ -1,0 +1,76 @@
+.emp-profile-container {
+    max-width: 600px;
+    margin: auto;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+.back-button i {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.emp-profile-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.emp-profile-img img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.emp-profile-details {
+    flex: 1;
+    color: #333;
+}
+
+.emp-profile-details h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.emp-profile-details .emp-email {
+    color: #007bff;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.emp-info p, .emp-additional-info div {
+    margin: 5px 0;
+}
+
+.emp-info p {
+    color: #666;
+}
+
+.emp-additional-info {
+    margin-top: 20px;
+}
+
+.emp-additional-info h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.light-text {
+    color: #999;
+}

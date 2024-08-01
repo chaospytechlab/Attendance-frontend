@@ -1,129 +1,179 @@
-/* Employees.css
-.employees-page {
-    padding: 20px;
-  }
-  
-  .employees-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-  }
-  
-  .employees-nav .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  
-  .employees-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .employees-nav ul li {
-    margin-left: 20px;
-  }
-  
-  .employees-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .employees-nav ul li a:hover {
-    text-decoration: underline;
-  }
-  
-  .employees-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .employee-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    width: calc(32.0% - 40px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .employee-card h3 {
-    margin-top: 0;
-  }
-  
-  .error {
-    color: red;
-  }
-   */
+.A_Employee-container {
+  padding: 20px;
+}
 
-   .A_Employee-container {
-    padding: 20px;
-  }
-  
-  .A_Employee-content {
-    margin: 20px 50px;
-  }
-  
-  .A_Employee-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .A_Employee-logo {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .A_Employee-search {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    width: 300px;
-  }
-  
-  .A_Employee-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .A_Employee-table th,
-  .A_Employee-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .A_Employee-profile {
-    display: flex;
-    align-items: center;
-  }
-  
-  .A_Employee-profile img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .A_Employee-action {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    margin-left: 10px;
-    color: #007bff;
-  }
-  
-  .A_Employee-action:hover {
-    color: #0056b3;
-  }
-  
+.A_Employee-content {
+  margin: 20px 50px;
+}
+
+.A_Employee-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.A_Employee-search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.A_Employee-search {
+  padding: 10px 40px 10px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 300px;
+  border: none;
+  box-shadow: 0 0 10px 0 #b1d5e6;
+}
+
+.A_Employee-search-icon {
+  position: absolute;
+  right: 10px;
+  color: #aaa;
+}
+
+.A_Employee-user-dropdown select {
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 100%;
+  background: white;
+  padding-left: 50px;
+  border: none;
+  box-shadow: 0 0 10px 0 #b1d5e6;
+}
+
+.A_Employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px 0 #b1d5e6;
+}
+
+.A_Employee-table th {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background-color: #e0f0ff;
+  color: #656565;
+}
+
+.A_Employee-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  color: #656565;
+  background: white;
+}
+
+.A_Employee-profile {
+  display: flex;
+  align-items: center;
+}
+
+.A_Employee-profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: -40px;
+  margin-left: 20px;
+}
+
+.A_Employee-action {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 10px;
+  color: #007bff;
+}
+
+.A_Employee-action:hover {
+  color: #0056b3;
+}
+
+.A_Employee-group-header {
+  background-color: #f1f1f1;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+  background: white;
+}
+
+.A_Employee-group h2 {
+  margin: 20px 0;
+}
+
+.A_Employee-width {
+  width: 300px;
+}
+
+/* Employee List Model Css */
+
+.A_Employee-add-admin {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2596BE;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px 0 #b1d5e6;
+}
+
+.A_Employee-add-admin img {
+  width: 30px;
+  height: 30px;
+}
+
+.A_Employee-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.A_Employee-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 0 10px 0 #b1d5e6;
+}
+
+.A_Employee-modal h2 {
+  margin-top: 0;
+}
+
+.A_Employee-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.A_Employee-profile-model img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 
+}

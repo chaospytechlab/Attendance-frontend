@@ -126,11 +126,10 @@
 .A_Report-section {
     margin-bottom: 40px;
     /* border: 1px solid #007bff; */
-    box-shadow: 0 0 10px 0 #b1d5e6;
+    box-shadow: 0 0 10px 0 #b1d5e6;/*******/
     border-radius: 20px;
     padding: 20px 50px;
 }
-
 .A_Report-section-info {
     display: flex;
     align-items: center;

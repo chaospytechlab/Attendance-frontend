@@ -21,6 +21,7 @@ import Progress from './Components/Progress';
 import TabbedPage from './Components/TabbedPage'; // Import your TabbedPage component
 import A_History from './Components/A_History';
 import A_Report from './Components/A_Report';
+import A_EmpProfile from './Components/A_EmpProfile';
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -77,7 +78,8 @@ function App() {
             <Route path="/admin/employees" element={<A_Employees />} />
             <Route path="/admin/view-all-leaves" element={<ViewAllLeaves />} /> 
             <Route path="/admin/history" element={<A_History user={user} />} />
-            <Route path="/admin/report" element={<A_Report user={user} />} />
+            <Route path="/admin/report" element={<A_Report />} />
+            <Route path="/admin/employeeProfile" element={<A_EmpProfile  />} />
           </Routes>
         )}
       </div>
