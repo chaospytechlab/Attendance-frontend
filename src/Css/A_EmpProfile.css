@@ -1,39 +1,49 @@
 .emp-profile-container {
-    max-width: 600px;
-    margin: auto;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    background-color: #fff;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .back-button {
-    position: absolute;
-    top: 15px;
-    left: 15px;
     cursor: pointer;
 }
 
-.back-button i {
-    font-size: 24px;
-    color: #007bff;
+.back-button svg {
+    display: block;
 }
 
 .emp-profile-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0 0 10px 0 #b1d5e6;     font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.emp-profile-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .emp-profile-img img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 250px;
+    border-radius: 25px;
     object-fit: cover;
+    margin-right: 200px;
 }
 
 .emp-profile-details {
@@ -53,22 +63,31 @@
     font-weight: bold;
 }
 
-.emp-info p, .emp-additional-info div {
-    margin: 5px 0;
-}
-
 .emp-info p {
     color: #666;
+    margin: 7px 0;
 }
 
 .emp-additional-info {
-    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 10px;
 }
 
-.emp-additional-info h3 {
+.left-info, .right-info {
+    flex: 1;
+}
+
+.left-info h3, .right-info h3 {
     font-size: 18px;
     color: #333;
     margin-bottom: 5px;
+}
+
+.left-info p, .right-info p {
+    margin: 5px 0;
+    color: #656565;
 }
 
 .light-text {

@@ -39,7 +39,7 @@ const A_Navbar = ({ onLogout }) => {
         <Link to="/admin/dashboard">Home</Link>
         <Link to="/admin/history">History</Link>
         <Link to="/admin/employees">Employees</Link>
-        <Link to="/admin/settings">Settings</Link>
+        <Link to="/admin/Profile">Settings</Link>
         <button onClick={onLogout}>Logout</button>
       </div>
     </nav>

@@ -221,6 +221,8 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import '../Css/Modal.css';
 import profile from '../Image/jk.png';
+import Download from '../Icon/download.svg';
+
 
 const PresentStatusModal = ({ show, handleClose, data, title }) => {
   const handleDownloadPDF = () => {
@@ -255,7 +257,7 @@ const PresentStatusModal = ({ show, handleClose, data, title }) => {
         <div className="present-model-modal-header">
           <h2>{title}</h2>
           <input type="text" placeholder="Search employee.." />
-          <button onClick={handleDownloadPDF} className="download-btn">Download PDF</button>
+          <img src={Download} alt="Profile" onClick={handleDownloadPDF} />
         </div>
         <table>
           <thead>

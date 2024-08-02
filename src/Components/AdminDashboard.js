@@ -966,7 +966,9 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 const AdminDashboard = ({ onLogout, initialLeaves  }) => {
+  // const [attendanceData, setAttendanceData] = useState([]);
   const [attendanceData, setAttendanceData] = useState([]);
+
   const [leavesData, setLeavesData] = useState([]);
   const [date, setDate] = useState(new Date());
   const [activeTab, setActiveTab] = useState('admin');
@@ -1036,29 +1038,32 @@ const [users, setUsers] = useState([]);
     fetchAttendance();
   }, []);
 
+ 
   const handleShowTodayStatus = () => {
-    console.log("Attendance data:", attendance); // Debug log
-    if (!attendance || attendance.length === 0) {
-      console.warn('Attendance data is not available.');
-      return;
-    }
+    // console.log("Attendance data:", attendance); // Debug log
+    // if (!attendance || attendance.length === 0) {
+    //   console.warn('Attendance data is not available.');
+    //   return;
+    // }
 
-    const today = new Date().toISOString().split('T')[0];
-    const presentEmployees = attendance
-      .filter(record => record.date === today && record.status === 'present')
-      .map(record => {
-        const user = users.find(user => user.id === record.employeeId);
-        return {
-          ...record,
-          username: user?.username || 'Unknown',
-          role: user?.role || 'Unknown',
-        };
-      });
+    // const today = new Date().toISOString().split('T')[0];
+    // const presentEmployees = attendance
+    //   .filter(record => record.date === today && record.status === 'present')
+    //   .map(record => {
+    //     const user = users.find(user => user.id === record.employeeId);
+    //     return {
+    //       ...record,
+    //       username: user?.username || 'Unknown',
+    //       role: user?.role || 'Unknown',
+    //     };
+    //   });
 
-    console.log("Present employees:", presentEmployees); // Debug log
-    setPresentStatusData(presentEmployees);
+    // console.log("Present employees:", presentEmployees); // Debug log
+    // setPresentStatusData(presentEmployees);
+    setModalTitle("Today's Employee Status");
     setShowTodayStatusModal(true);
   };
+
 
   const handleTodayModalClose = () => {
     setShowTodayStatusModal(false);
@@ -1265,17 +1270,17 @@ const chartOptions = {
             <div className="chart-container">
               <div className="section-title-chart">
               <h2>Employee Status</h2>
-              <h3  onClick={handleShowTodayStatus}>Today Status</h3>
+              <h3   onClick={handleShowTodayStatus}>Today Status</h3>
               </div>
               <Bar data={chartData} style={chartContainerStyle} options={chartOptions} />
               <Modal show={showModal} handleClose={handleModalClose} data={presentData} />        
               <AbsentModal show={showAbsentModal} handleClose={handleAbsentModalClose} data={absentData} />        
               <PresentStatusModal
-        show={showTodayStatusModal}
-        handleClose={handleTodayModalClose}
-        data={presentStatusData}
-        title="Today's Employee Status"
-      />
+                show={showTodayStatusModal}
+                handleClose={handleTodayModalClose}
+                data={presentStatusData}
+                title={modalTitle}
+              />
             </div>
             <div className="leave-summary">
               <div className="section-title">Leave Summary</div>

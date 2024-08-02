@@ -22,6 +22,8 @@ import TabbedPage from './Components/TabbedPage'; // Import your TabbedPage comp
 import A_History from './Components/A_History';
 import A_Report from './Components/A_Report';
 import A_EmpProfile from './Components/A_EmpProfile';
+import A_Profile from './Components/A_Setting';
+
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -80,6 +82,7 @@ function App() {
             <Route path="/admin/history" element={<A_History user={user} />} />
             <Route path="/admin/report" element={<A_Report />} />
             <Route path="/admin/employeeProfile" element={<A_EmpProfile  />} />
+            <Route path="/admin/Profile" element={<A_Profile  />} />
           </Routes>
         )}
       </div>
